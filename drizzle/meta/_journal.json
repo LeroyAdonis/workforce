@@ -15,6 +15,13 @@
       "when": 1775761772016,
       "tag": "0001_famous_invaders",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1775850000000,
+      "tag": "0002_add_phase3_tables",
+      "breakpoints": true
     }
   ]
 }

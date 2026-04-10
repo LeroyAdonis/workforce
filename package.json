@@ -13,7 +13,8 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "dotenv-cli -e .env.local -- drizzle-kit push",
     "db:studio": "dotenv-cli -e .env.local -- drizzle-kit studio",
-    "db:test": "dotenv-cli -e .env.local -- npx tsx scripts/test-auth-tables.ts"
+    "db:test": "dotenv-cli -e .env.local -- npx tsx scripts/test-auth-tables.ts",
+    "db:seed": "dotenv-cli -e .env.local -- npx tsx src/db/seeds/seed.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",
