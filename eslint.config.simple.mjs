@@ -2,7 +2,7 @@ import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   {
-    ignores: [".next/**", "node_modules/**", "out/**", "build/**", "*.config.*"],
+    ignores: [".next/**", "node_modules/**", "out/**", "build/**", "*.proxyConfig.*"],
     files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
     languageOptions: {
       ecmaVersion: "latest",

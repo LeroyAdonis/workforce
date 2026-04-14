@@ -9,7 +9,7 @@ const ROLE_PATHS: Record<string, string[]> = {
   worker: ["/worker", "/api"],
 };
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const isPublicPath = PUBLIC_PATHS.some(
@@ -46,12 +46,12 @@ export async function middleware(request: NextRequest) {
 
     return response;
   } catch (error) {
-    console.error("Auth middleware error:", error);
+    console.error("Auth proxy error:", error);
     const loginUrl = new URL("/login", request.url);
     return NextResponse.redirect(loginUrl);
   }
 }
 
-export const config = {
+export const proxyConfig = {
   matcher: ["/((?!_next/static|_next/image|favicon.ico|public/).*)"],
 };
