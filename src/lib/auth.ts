@@ -36,12 +36,6 @@ export const auth = betterAuth({
 
 export type Auth = typeof auth;
 
-export async function getUserById(userId: number) {
-  return db.query.users.findFirst({
-    where: eq(users.id, userId),
-  });
-}
-
 export async function getUserByEmail(email: string) {
   return db.query.users.findFirst({
     where: eq(users.email, email),
