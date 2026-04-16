@@ -17,6 +17,8 @@ export const users = pgTable("users", {
   name: varchar("name", { length: 255 }).notNull(),
   role: varchar("role", { length: 20 }).notNull().default("worker"),
   isActive: boolean("is_active").notNull().default(true),
+  targetVisitsDaily: integer("target_visits_daily").default(12),
+  targetKmsDaily: varchar("target_kms_daily", { length: 50 }).default("150"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });

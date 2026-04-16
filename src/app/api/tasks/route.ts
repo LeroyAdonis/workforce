@@ -5,6 +5,7 @@ import { eq, desc, and } from "drizzle-orm";
 import { auth } from "@/lib/auth";
 import { successResponse, createdResponse, errorResponse, errors } from "@/lib/api/responses";
 import { createTaskSchema, updateTaskSchema, taskListQuerySchema } from "@/lib/validations/tasks";
+import { buildPaginationMeta } from "@/lib/api/pagination";
 
 export async function GET(request: NextRequest) {
   try {
@@ -32,7 +33,7 @@ export async function GET(request: NextRequest) {
       .offset(offset)
       .orderBy(desc(tasks.createdAt));
 
-    return successResponse(data, { page, limit, total: 0 }); // Total count missing
+    return successResponse(data, buildPaginationMeta(0, page, limit)); // Total count missing
   } catch (error) {
     console.error("GET tasks error:", error);
     return errors.internal("Failed to fetch tasks");

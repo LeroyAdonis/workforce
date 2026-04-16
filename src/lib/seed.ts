@@ -114,7 +114,7 @@ async function seed() {
           inspectionNotes[Math.floor(Math.random() * inspectionNotes.length)];
 
         await db.insert(visits).values({
-          workerId: worker.id,
+          workerId: String(worker.id),
           siteId: site.id,
           timestamp: new Date(date.getTime() + v * 45 * 60 * 1000),
           kmsCovered: kms,

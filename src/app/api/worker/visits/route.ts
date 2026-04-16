@@ -32,9 +32,9 @@ export async function GET(request: NextRequest) {
     if (!validated.success) return errors.validationError(validated.error);
 
     const { date } = validated.data;
-    const workerId = (session.user as { id: number }).id;
+    const workerId = Number((session.user as { id: string }).id);
 
-    const conditions = [eq(visits.workerId, workerId)];
+    const conditions = [eq(visits.workerId, String(workerId))];
 
     if (date) {
       const d = new Date(date);
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
     const session = await auth.api.getSession({ headers: request.headers });
     if (!session) return errors.unauthorized();
 
-    const userId = (session.user as { id: number }).id;
+    const userId = Number((session.user as { id: string }).id);
     const body = await request.json();
     
     // Simple validation for now, should use a proper Zod schema
@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
     const [newVisit] = await db
       .insert(visits)
       .values({
-        workerId: userId,
+        workerId: String(userId),
         siteId,
         kmsCovered: kmsCovered ? String(kmsCovered) : null,
         inspectionNotes: inspectionNotes || null,

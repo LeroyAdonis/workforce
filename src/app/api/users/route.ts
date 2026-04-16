@@ -4,7 +4,8 @@ import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { auth } from "@/lib/auth";
 import { successResponse, createdResponse, errors } from "@/lib/api/responses";
-import { createUserSchema, updateUserSchema } from "@/lib/validations/users";
+import { createUserSchema } from "@/lib/validations/users";
+import { hash } from "bcryptjs";
 
 export async function GET(request: NextRequest) {
   try {
@@ -28,9 +29,12 @@ export async function POST(request: NextRequest) {
     const validated = createUserSchema.safeParse(body);
     if (!validated.success) return errors.validationError(validated.error);
 
+    const { password, ...userData } = validated.data;
+    const passwordHash = await hash(password, 10);
+
     const [newUser] = await db
       .insert(users)
-      .values(validated.data)
+      .values({ ...userData, passwordHash })
       .returning();
 
     return createdResponse(newUser);

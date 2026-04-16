@@ -41,7 +41,7 @@ export async function GET(request: NextRequest) {
     const session = await auth.api.getSession({ headers: request.headers });
     if (!session) return errors.unauthorized();
 
-    const userId = (session.user as { id: number }).id;
+    const userId = Number((session.user as { id: string }).id);
     const now = new Date();
     const hourOfDay = now.getHours();
 
@@ -63,7 +63,7 @@ export async function GET(request: NextRequest) {
       .from(visits)
       .where(
         and(
-          eq(visits.workerId, userId),
+          eq(visits.workerId, String(userId)),
           gte(visits.timestamp, todayStart),
           lt(visits.timestamp, todayEnd)
         )
@@ -82,7 +82,7 @@ export async function GET(request: NextRequest) {
       .from(visits)
       .where(
         and(
-          eq(visits.workerId, userId),
+          eq(visits.workerId, String(userId)),
           gte(visits.timestamp, weekStart)
         )
       );
@@ -100,7 +100,7 @@ export async function GET(request: NextRequest) {
       .from(visits)
       .where(
         and(
-          eq(visits.workerId, userId),
+          eq(visits.workerId, String(userId)),
           gte(visits.timestamp, monthStart)
         )
       );
