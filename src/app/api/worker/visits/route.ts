@@ -1,8 +1,14 @@
 import { NextRequest } from "next/server";
 import { db } from "@/db";
-import { visits, sites, users } from "@/db/schema";
+import { visits, sites } from "@/db/schema";
 import { eq, desc, and, gte, lt } from "drizzle-orm";
 import { auth } from "@/lib/auth";
+import { successResponse, createdResponse, errors } from "@/lib/api/responses";
+import { z } from "zod";
+
+const visitFilterSchema = z.object({
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+});
 
 function startOfDay(d: Date) {
   const copy = new Date(d);
@@ -19,13 +25,14 @@ function endOfDay(d: Date) {
 export async function GET(request: NextRequest) {
   try {
     const session = await auth.api.getSession({ headers: request.headers });
-    if (!session) {
-      return Response.json({ success: false, error: "Unauthorized" }, { status: 401 });
-    }
+    if (!session) return errors.unauthorized();
 
     const { searchParams } = new URL(request.url);
-    const date = searchParams.get("date"); // YYYY-MM-DD
-    const workerId = (session.user as { id: string; role: string }).id;
+    const validated = visitFilterSchema.safeParse(Object.fromEntries(searchParams.entries()));
+    if (!validated.success) return errors.validationError(validated.error);
+
+    const { date } = validated.data;
+    const workerId = (session.user as { id: number }).id;
 
     const conditions = [eq(visits.workerId, workerId)];
 
@@ -53,33 +60,24 @@ export async function GET(request: NextRequest) {
       .where(and(...conditions))
       .orderBy(desc(visits.timestamp));
 
-    return Response.json({ success: true, data: results });
+    return successResponse(results);
   } catch (error) {
     console.error("GET visits error:", error);
-    return Response.json(
-      { success: false, error: "Failed to fetch visits" },
-      { status: 500 }
-    );
+    return errors.internal("Failed to fetch visits");
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
     const session = await auth.api.getSession({ headers: request.headers });
-    if (!session) {
-      return Response.json({ success: false, error: "Unauthorized" }, { status: 401 });
-    }
+    if (!session) return errors.unauthorized();
 
-    const userId = (session.user as { id: string; role: string }).id;
+    const userId = (session.user as { id: number }).id;
     const body = await request.json();
+    
+    // Simple validation for now, should use a proper Zod schema
     const { siteId, kmsCovered, inspectionNotes } = body;
-
-    if (!siteId) {
-      return Response.json(
-        { success: false, error: "siteId is required" },
-        { status: 400 }
-      );
-    }
+    if (!siteId) return errors.badRequest("siteId is required");
 
     const [newVisit] = await db
       .insert(visits)
@@ -93,12 +91,9 @@ export async function POST(request: NextRequest) {
       })
       .returning();
 
-    return Response.json({ success: true, data: newVisit }, { status: 201 });
+    return createdResponse(newVisit);
   } catch (error) {
     console.error("POST visit error:", error);
-    return Response.json(
-      { success: false, error: "Failed to create visit" },
-      { status: 500 }
-    );
+    return errors.internal("Failed to create visit");
   }
 }

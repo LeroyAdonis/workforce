@@ -3,20 +3,27 @@ import { db } from "@/db";
 import { sites } from "@/db/schema";
 import { eq, like, and, or } from "drizzle-orm";
 import { auth } from "@/lib/auth";
+import { successResponse, createdResponse, errors } from "@/lib/api/responses";
+import { z } from "zod";
+
+const siteFilterSchema = z.object({
+  isActive: z.coerce.boolean().optional(),
+  search: z.string().optional(),
+});
 
 export async function GET(request: NextRequest) {
   try {
     const session = await auth.api.getSession({ headers: request.headers });
-    if (!session || (session.user as { role: string }).role !== "admin") {
-      return Response.json({ success: false, error: "Unauthorized" }, { status: 401 });
-    }
+    if (!session || (session.user as { role: string }).role !== "admin") return errors.forbidden();
 
     const { searchParams } = new URL(request.url);
-    const isActive = searchParams.get("isActive");
-    const search = searchParams.get("search");
+    const validated = siteFilterSchema.safeParse(Object.fromEntries(searchParams.entries()));
+    if (!validated.success) return errors.validationError(validated.error);
+
+    const { isActive, search } = validated.data;
 
     const conditions = [];
-    if (isActive === "true") conditions.push(eq(sites.isActive, true));
+    if (isActive !== undefined) conditions.push(eq(sites.isActive, isActive));
     if (search) {
       conditions.push(
         or(
@@ -32,35 +39,32 @@ export async function GET(request: NextRequest) {
       .where(conditions.length > 0 ? and(...conditions) : undefined)
       .orderBy(sites.name);
 
-    return Response.json({ success: true, data: results });
+    return successResponse(results);
   } catch (error) {
     console.error("GET sites error:", error);
-    return Response.json({ success: false, error: "Failed to fetch sites" }, { status: 500 });
+    return errors.internal("Failed to fetch sites");
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
     const session = await auth.api.getSession({ headers: request.headers });
-    if (!session || (session.user as { role: string }).role !== "admin") {
-      return Response.json({ success: false, error: "Unauthorized" }, { status: 401 });
-    }
+    if (!session || (session.user as { role: string }).role !== "admin") return errors.forbidden();
 
     const body = await request.json();
+    
+    // Validation
     const { name, address } = body;
-
-    if (!name) {
-      return Response.json({ success: false, error: "name is required" }, { status: 400 });
-    }
+    if (!name) return errors.badRequest("name is required");
 
     const [newSite] = await db
       .insert(sites)
       .values({ name, address: address || null, isActive: true })
       .returning();
 
-    return Response.json({ success: true, data: newSite }, { status: 201 });
+    return createdResponse(newSite);
   } catch (error) {
     console.error("POST site error:", error);
-    return Response.json({ success: false, error: "Failed to create site" }, { status: 500 });
+    return errors.internal("Failed to create site");
   }
 }

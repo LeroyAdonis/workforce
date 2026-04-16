@@ -3,6 +3,7 @@ import { db } from "@/db";
 import { visits, users } from "@/db/schema";
 import { eq, and, gte, lt } from "drizzle-orm";
 import { auth } from "@/lib/auth";
+import { successResponse, errors } from "@/lib/api/responses";
 
 function startOfDay(d: Date) {
   const copy = new Date(d);
@@ -38,11 +39,9 @@ function calcStatus(actual: number, target: number): "green" | "amber" | "red" {
 export async function GET(request: NextRequest) {
   try {
     const session = await auth.api.getSession({ headers: request.headers });
-    if (!session) {
-      return Response.json({ success: false, error: "Unauthorized" }, { status: 401 });
-    }
+    if (!session) return errors.unauthorized();
 
-    const userId = (session.user as { id: string; role: string }).id;
+    const userId = (session.user as { id: number }).id;
     const now = new Date();
     const hourOfDay = now.getHours();
 
@@ -126,9 +125,7 @@ export async function GET(request: NextRequest) {
     const expectedMonth = dailyTarget * (dayOfMonth + 1);
     const monthlyPacePercent = expectedMonth > 0 ? (monthlySites / expectedMonth) * 100 : 0;
 
-    return Response.json({
-      success: true,
-      data: {
+    return successResponse({
         todaySites,
         todayKm: Math.round(todayKm * 10) / 10,
         todayTarget: dailyTarget,
@@ -144,13 +141,9 @@ export async function GET(request: NextRequest) {
         pacePercent: Math.round(pacePercent),
         weeklyPacePercent: Math.round(weeklyPacePercent),
         monthlyPacePercent: Math.round(monthlyPacePercent),
-      },
     });
   } catch (error) {
     console.error("GET KPI error:", error);
-    return Response.json(
-      { success: false, error: "Failed to fetch KPI" },
-      { status: 500 }
-    );
+    return errors.internal("Failed to fetch KPI");
   }
 }
