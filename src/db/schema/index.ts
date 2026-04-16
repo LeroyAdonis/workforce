@@ -36,6 +36,9 @@ export type NewUser = typeof users.$inferInsert;
 export type Session = typeof sessions.$inferSelect;
 export type NewSession = typeof sessions.$inferInsert;
 
+export * from "./sites";
+export * from "./visits";
+
 export const tasks = pgTable("tasks", {
   id: serial("id").primaryKey(),
   userId: integer("user_id")
