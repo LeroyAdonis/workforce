@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     const session = await auth.api.getSession({ headers: request.headers });
     if (!session) return errors.unauthorized();
 
-    const userId = (session.user as { id: number }).id;
+    const userId = Number((session.user as { id: string }).id);
     const data = await db
       .select()
       .from(notifications)
@@ -35,7 +35,7 @@ export async function PUT(request: NextRequest) {
     const [updated] = await db
       .update(notifications)
       .set({ status: "read" })
-      .where(and(eq(notifications.id, id), eq(notifications.userId, (session.user as { id: number }).id)))
+      .where(and(eq(notifications.id, id), eq(notifications.userId, Number((session.user as { id: string }).id))))
       .returning();
 
     if (!updated) return errors.notFound("Notification not found");
