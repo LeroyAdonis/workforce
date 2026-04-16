@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>North Creek Terminal - Architectural Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-tertiary-container": "#98805d",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#0053db",
+                    "secondary-container": "#d0e1fb",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-low": "#f2f4f6",
+                    "on-primary-container": "#497cff",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "secondary": "#505f76",
+                    "primary": "#000000",
+                    "on-background": "#191c1e",
+                    "on-surface-variant": "#45464d",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface-bright": "#f7f9fb",
+                    "outline-variant": "#c6c6cd",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#54647a",
+                    "primary-fixed": "#dbe1ff",
+                    "on-surface": "#191c1e",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "surface-container": "#eceef0",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-container": "#00174b",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "tertiary-fixed": "#fcdeb5",
+                    "tertiary-container": "#271901",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-dim": "#d8dadc",
+                    "on-primary-fixed": "#00174b",
+                    "outline": "#76777d",
+                    "on-tertiary-fixed": "#271901"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-20 flex flex-col gap-2 p-4 border-r border-slate-200/50 dark:border-slate-800/50 bg-slate-50 dark:bg-slate-950 z-40">
+<div class="mb-8 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">domain</span>
+</div>
+<div>
+<p class="font-black text-slate-900 dark:text-white text-xs uppercase tracking-tighter">Command Center</p>
+<p class="text-[10px] text-slate-500 font-medium">Site View Alpha</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-sm font-medium Inter tracking-wide uppercase" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-sm font-medium Inter tracking-wide uppercase" href="#">
+<span class="material-symbols-outlined">description</span> Reports
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-slate-200 dark:bg-slate-800 text-slate-950 dark:text-slate-50 rounded-lg text-sm font-medium Inter tracking-wide uppercase" href="#">
+<span class="material-symbols-outlined">domain</span> Site Management
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-sm font-medium Inter tracking-wide uppercase" href="#">
+<span class="material-symbols-outlined">group</span> Workforce
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-sm font-medium Inter tracking-wide uppercase" href="#">
+<span class="material-symbols-outlined">analytics</span> Analytics
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-1 border-t border-slate-200/50 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-sm font-medium Inter tracking-wide uppercase" href="#">
+<span class="material-symbols-outlined">help</span> Support
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-sm font-medium Inter tracking-wide uppercase" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- TopAppBar (Shared Component) -->
+<header class="w-full sticky top-0 z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none flex justify-between items-center px-6 h-16 ml-0 md:pl-72">
+<div class="flex items-center gap-4">
+<h1 class="text-xl font-bold tracking-tighter text-slate-950 dark:text-slate-50">Architectural Intelligence</h1>
+<div class="h-4 w-[1px] bg-slate-300"></div>
+<p class="text-sm font-medium text-slate-500">North Creek Terminal</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-slate-950 transition-colors">notifications</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-slate-950 transition-colors">settings</span>
+</div>
+<img alt="User profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-slate-200" data-alt="Close-up portrait of a professional male engineer in a light blue shirt looking confidently at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQT9zDpYHCIcDW-brnAsVdLLSqGR5TxV6I78rj2iRyCwiYKqRoLC2zt0P87duq9afe-9Mgno57KGI5zfZASr_BzFEWvbVbkFYqcpzfCgwqGp8YAopdehrjeJk2Oir3KkFp5bfFXKiAoSeYaV9SgT4cPlugb0A3VQPCuGNrv3FbemMQkm-xEO-gG350dIy56GaIAh7wwN_bfIWr4Xz8qviMpsAodJdkk56ve3N36hUNOOcOkThH2fID75bs7sY173pQOHoUTourLF0e"/>
+</div>
+</header>
+<main class="ml-0 md:ml-64 p-8 min-h-screen transition-all duration-300">
+<!-- Site Header Section -->
+<section class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold tracking-widest uppercase rounded-full flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                        Active
+                    </span>
+<span class="text-label-sm font-mono text-outline uppercase tracking-wider">ID: NCT-042-X</span>
+</div>
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface">North Creek Terminal</h2>
+<p class="text-on-surface-variant mt-2 max-w-2xl leading-relaxed">Strategic logistical hub situated in the Northern Sector. Primary node for Pacific Northwest regional distribution and automated structural monitoring.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-secondary-container text-on-secondary-container font-semibold rounded-xl text-sm transition-all hover:brightness-95">
+                    Download Report
+                </button>
+<button class="px-6 py-2.5 bg-primary text-on-primary font-semibold rounded-xl text-sm transition-all hover:bg-slate-800 shadow-xl shadow-slate-900/10">
+                    Live View
+                </button>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="bento-grid">
+<!-- 1. Network Vitality (Wide) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between overflow-hidden relative">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-sm font-bold tracking-widest uppercase text-on-surface-variant mb-1">Network Vitality</h3>
+<p class="text-xs text-outline">Real-time signal performance (24h)</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-1 bg-surface-container text-on-surface-variant rounded text-[10px] font-bold">98.2 MS AVG</span>
+<span class="px-2 py-1 bg-surface-container text-on-surface-variant rounded text-[10px] font-bold">LIVE</span>
+</div>
+</div>
+<!-- Mock Chart Visualization -->
+<div class="h-64 w-full relative flex items-end gap-1">
+<div class="absolute inset-0 flex flex-col justify-between opacity-5">
+<div class="border-t border-on-surface w-full"></div>
+<div class="border-t border-on-surface w-full"></div>
+<div class="border-t border-on-surface w-full"></div>
+<div class="border-t border-on-surface w-full"></div>
+</div>
+<!-- Simplified Visual Flow -->
+<svg class="absolute bottom-0 left-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 200">
+<path d="M0,150 Q100,80 200,120 T400,60 T600,140 T800,80 T1000,100" fill="none" stroke="black" stroke-width="3"></path>
+<path d="M0,150 Q100,80 200,120 T400,60 T600,140 T800,80 T1000,100 V200 H0 Z" fill="url(#gradient)" opacity="0.05"></path>
+<defs>
+<lineargradient id="gradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:black;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:white;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- Tapered Pulse Point -->
+<div class="absolute right-0 bottom-[100px] w-3 h-3 bg-primary rounded-full shadow-[0_0_15px_rgba(0,0,0,0.5)]"></div>
+</div>
+</div>
+<!-- 2. Site Snapshot Cards (Stacked) -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-4">
+<div class="bg-surface-container-low rounded-xl p-6 flex items-center justify-between">
+<div>
+<p class="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant mb-1">Total Visits (30D)</p>
+<h4 class="text-3xl font-black tracking-tighter">1,240</h4>
+</div>
+<div class="w-12 h-12 bg-surface-container-lowest rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 flex items-center justify-between">
+<div>
+<p class="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant mb-1">Efficiency Score</p>
+<div class="flex items-center gap-2">
+<h4 class="text-3xl font-black tracking-tighter">94.2%</h4>
+<span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-1.5 rounded">Optimal</span>
+</div>
+</div>
+<div class="w-12 h-12 bg-surface-container-lowest rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 flex items-center justify-between">
+<div>
+<p class="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant mb-1">Last Inspection</p>
+<h4 class="text-3xl font-black tracking-tighter">24 <span class="text-lg font-medium text-outline">mins ago</span></h4>
+</div>
+<div class="w-12 h-12 bg-surface-container-lowest rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+</div>
+</div>
+<!-- 3. Assigned Personnel -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-xl p-8">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-sm font-bold tracking-widest uppercase text-on-surface-variant">Assigned Personnel</h3>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">add_circle</span>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="relative">
+<img alt="Marcus Thorne" class="w-12 h-12 rounded-xl object-cover transition-transform group-hover:scale-105" data-alt="Professional headshot of a middle-aged man with short hair and glasses, wearing a safety vest in a professional office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAreRsRsktQ0gLN2cKJSEGotyryEGnXiXsfhKw9A9yBqbDVfHWwmKYoB493cHE88MOLqtlTAeU4u2sjLZwoNWoxGN1fouYlTHO4kH-a8btSYliSoTjnpigEVpwTfbpRDkZUoEqhF7625s5LaKaHwhRYsVER7QfXVX7vN4f0TbHpTUxRuSikjGBpCUm-6YIJIO0c9PnF7wEzAssJAtyvr2DujCSiXo4gnor1aML5lyn3AhR1dNF1iZxM23-vGqotrFXJ8Bm9lQJ_jbVo"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full"></div>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Marcus Thorne</p>
+<p class="text-[11px] text-outline uppercase tracking-wider font-semibold">Senior Surveyor</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline group-hover:text-primary opacity-0 group-hover:opacity-100 transition-all">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="relative">
+<img alt="Elena Rodriguez" class="w-12 h-12 rounded-xl object-cover transition-transform group-hover:scale-105" data-alt="Close-up of a confident woman with dark hair tied back, wearing a minimalist black business suit, professional studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsQfSzDKdErgSqCt9rWgdaxMsJyYSGFqw8p1OBkVafFevkhlXpl72WrDMl2v45kWooLyoDY57N8CCUcdPL3Y0A7F6hFDoU6qUubbn-2uIL1A7Plk6q3IBnHUPNb-98eswHPrfTOwiMf7vd8z2R9VftiuErf1eQogi3RFMGfRmY25Xv53RG8_Plb4_dE3j7gJjrf1Gv0QLOVvGZLI_MRbU5s5jjDkhL12mfzIkgh2HojYCmXGXSvxVQs3pq40Zm1LaRwXmILDWoQeUT"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-amber-500 border-2 border-white rounded-full"></div>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Elena Rodriguez</p>
+<p class="text-[11px] text-outline uppercase tracking-wider font-semibold">Field Operations</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline group-hover:text-primary opacity-0 group-hover:opacity-100 transition-all">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="relative">
+<img alt="Samuel Chen" class="w-12 h-12 rounded-xl object-cover transition-transform group-hover:scale-105" data-alt="Modern professional portrait of a young Asian man in a neutral gray sweater, looking thoughtful, blurred architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5Ki1bbdEC553-4Fzsr17N6cye4TEHuJ8XXfMORWmdUYtt1HdytkwVlSJkU3y7V5Q7weaJaSwfAw4XAZQUc92HUWuqBGBTC5BCmBToJqOwAKBVFRJ0uereR0jGZjbunQJMpgh1T9oJ_6XYGqjzHgeUPPukn2hfcn9EQMNVpkigVIELyTzfP5jY4VvKDrr3e1LwjYQqRYT66j0wRQWw5joAe15DFdlmqVgvClspnPcd9Zr_n5vkFmKouytNUU7dx_CW8unPFSCGgOFd"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full"></div>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Samuel Chen</p>
+<p class="text-[11px] text-outline uppercase tracking-wider font-semibold">Network Lead</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline group-hover:text-primary opacity-0 group-hover:opacity-100 transition-all">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- 4. Recent Site Activity Log -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-8">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-sm font-bold tracking-widest uppercase text-on-surface-variant">Recent Site Activity Log</h3>
+<button class="text-[10px] font-bold tracking-widest uppercase text-primary border-b-2 border-primary pb-0.5">View Archive</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full">
+<thead>
+<tr class="text-left">
+<th class="pb-4 text-[10px] font-bold tracking-widest uppercase text-outline px-2">Timestamp</th>
+<th class="pb-4 text-[10px] font-bold tracking-widest uppercase text-outline px-2">Operator</th>
+<th class="pb-4 text-[10px] font-bold tracking-widest uppercase text-outline px-2">Action</th>
+<th class="pb-4 text-[10px] font-bold tracking-widest uppercase text-outline px-2 text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-2 text-sm text-on-surface-variant">Today, 09:12 AM</td>
+<td class="py-4 px-2 text-sm font-semibold">Marcus Thorne</td>
+<td class="py-4 px-2 text-sm">Structural Inspection - All clear</td>
+<td class="py-4 px-2 text-right">
+<span class="px-2 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold rounded">SUCCESS</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-2 text-sm text-on-surface-variant">Yesterday, 04:45 PM</td>
+<td class="py-4 px-2 text-sm font-semibold">Elena Rodriguez</td>
+<td class="py-4 px-2 text-sm">Hardware calibration &amp; signal check</td>
+<td class="py-4 px-2 text-right">
+<span class="px-2 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold rounded">SUCCESS</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-2 text-sm text-on-surface-variant">24 Oct, 11:20 AM</td>
+<td class="py-4 px-2 text-sm font-semibold">System (Auto)</td>
+<td class="py-4 px-2 text-sm">Routine thermal diagnostic scan</td>
+<td class="py-4 px-2 text-right">
+<span class="px-2 py-1 bg-amber-50 text-amber-700 text-[10px] font-bold rounded">PENDING</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-2 text-sm text-on-surface-variant">23 Oct, 08:05 AM</td>
+<td class="py-4 px-2 text-sm font-semibold">Marcus Thorne</td>
+<td class="py-4 px-2 text-sm">Access point re-orientation</td>
+<td class="py-4 px-2 text-right">
+<span class="px-2 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold rounded">SUCCESS</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 5. Geographic Data (Bento Wide / Map) -->
+<div class="col-span-12 bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col md:flex-row h-[400px]">
+<div class="flex-1 p-8 flex flex-col justify-between">
+<div>
+<h3 class="text-sm font-bold tracking-widest uppercase text-on-surface-variant mb-4">Deployment Geographics</h3>
+<div class="space-y-4">
+<div>
+<p class="text-[10px] font-bold text-outline uppercase tracking-wider">Region</p>
+<p class="text-xl font-bold">Pacific Northwest</p>
+</div>
+<div class="flex gap-8">
+<div>
+<p class="text-[10px] font-bold text-outline uppercase tracking-wider">Latitude</p>
+<p class="text-lg font-mono font-medium">47.6062° N</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-outline uppercase tracking-wider">Longitude</p>
+<p class="text-lg font-mono font-medium">122.3321° W</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 bg-surface-container rounded-xl">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<p class="text-sm text-on-surface-variant leading-tight">Terminal 042, North Creek Way, Regional Sector Delta</p>
+</div>
+</div>
+<div class="flex-[1.5] relative min-h-[300px] md:min-h-full overflow-hidden">
+<img alt="Site Map" class="w-full h-full object-cover" data-alt="Bird's eye view of a highly detailed topographical map focusing on a lush coastal forest region with clean tech overlays and data points" data-location="Seattle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo2Y9pFpNOuHdbEjX6ZRrsMADGAbyKg6jSAhScyGvyRZLhpVXlrW5T5aUllzjmZ3YYuhL0kQXz83Sn1E3f8KQZaH2OP4Adi2kkLnxI2Vc_e3Sx2SZtBhAcaxxIMy-hfbpP3TEjuCQnsyRXUw9oMQ-bCf3p5ChRst8MDT7YIF89uhGZLsa11aWi_z80NQ9-LMUYqTHw_L4wkg9UUuUrNLCg-uB7MmQkoWilZS-6h1fdTDxXX0e5hTIq2pbVCyQ5ji2yk7JDKDOQTXDH"/>
+<!-- UI Overlays for Map -->
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center animate-pulse">
+<div class="w-4 h-4 bg-primary rounded-full"></div>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur shadow-2xl p-4 rounded-xl flex items-center gap-3">
+<div class="w-10 h-10 bg-slate-900 rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">satellite_alt</span>
+</div>
+<div>
+<p class="text-[10px] font-bold tracking-tighter text-outline uppercase">Satellite Status</p>
+<p class="text-xs font-bold">Orbital Lock Active</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action for Focused Task (Contextual Suppressed but added for page completeness if needed) -->
+<!-- Suppressed on detailed views according to Shell rules, but available for task focus -->
+</body></html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Management - Workforce Command</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#54647a",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "outline": "#76777d",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed": "#d3e4fe",
+                        "secondary": "#505f76",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#497cff",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "surface": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#271901",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-tint": "#0053db",
+                        "surface-dim": "#d8dadc",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fb",
+                        "primary": "#000000",
+                        "tertiary": "#000000",
+                        "primary-container": "#00174b",
+                        "outline-variant": "#c6c6cd",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary-fixed": "#271901",
+                        "on-surface-variant": "#45464d",
+                        "on-background": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-secondary-fixed": "#0b1c30",
+                        "tertiary-fixed": "#fcdeb5",
+                        "secondary-container": "#d0e1fb",
+                        "primary-fixed": "#dbe1ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary-container": "#98805d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition { transition: background-color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl w-full sticky top-0 z-50 tonal-transition shadow-sm dark:shadow-none flex items-center justify-between px-8 py-3 w-full">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold tracking-tighter text-slate-900 dark:text-white">Workforce Command</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-900 dark:text-white font-semibold border-b-2 border-slate-900 dark:border-white pb-1 font-inter tracking-tight" href="#">Users</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors font-inter tracking-tight" href="#">Sites</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors font-inter tracking-tight" href="#">Analytics</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors font-inter tracking-tight" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-9 pr-4 py-2 text-sm focus:ring-2 focus:ring-on-primary-container/20 w-64 transition-all" placeholder="Search workers..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-all active:scale-95" onclick="document.getElementById('add-user-modal').classList.remove('hidden')">Add New</button>
+<div class="flex items-center gap-2 border-l border-outline-variant/30 pl-4">
+<button class="p-2 text-slate-500 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="Administrator Profile" class="w-8 h-8 rounded-full border border-outline-variant/20 ml-2" data-alt="professional portrait of a senior system administrator in a high-tech office setting, soft natural lighting, minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9trNuP9W2yu02PLKbG2tSxmX4Trzm_DuoOfMZ6_GGOtJhjn6tPFkHkKL_FbZza8e5khZWQ_hEUmW1Wks_eFzMME3Cjj_3Yiwf97wy1d3nz-QCkI6lsKh-HG1qQqRVP3NZwmfHutYhIa7dcg3keVwP7garnxgYADNqZYPXNLX4dJHggz33FTMSwyyciR6Mn2UVYsaaTVellQ2OIbhcCNF4rn5jXdjyLPpM58B6ZJ1_7h3fiEleHsy38xuJvIf4BzasLhccFqfBO4je"/>
+</div>
+</div>
+</nav>
+<main class="max-w-[1440px] mx-auto p-8">
+<!-- Editorial Header Section -->
+<header class="mb-10 flex justify-between items-end">
+<div class="space-y-1">
+<h1 class="text-4xl font-extrabold tracking-tight text-primary">Kinetic Enterprise</h1>
+<p class="text-on-surface-variant font-medium tracking-wide uppercase text-[10px] opacity-70">Fleet Logistics &amp; Personnel Management</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm flex flex-col gap-1 min-w-[180px]">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Active Personnel</span>
+<span class="text-3xl font-black text-primary">1,284</span>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm flex flex-col gap-1 min-w-[180px]">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Fleet Coverage</span>
+<span class="text-3xl font-black text-on-primary-container">98.2%</span>
+</div>
+</div>
+</header>
+<!-- Asymmetric Content Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Main Data Table: The Core Canvas -->
+<section class="col-span-12 lg:col-span-9">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="px-6 py-4 flex items-center justify-between bg-surface-container-low/30">
+<h2 class="font-bold text-slate-900">User Directory</h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-container-high text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-high text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.1em] text-on-surface-variant">Worker</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.1em] text-on-surface-variant">Role</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.1em] text-on-surface-variant text-center">Daily Target</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.1em] text-on-surface-variant text-center">Distance Target</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase tracking-[0.1em] text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant/20">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed text-xs font-bold">EM</div>
+<div>
+<div class="text-sm font-semibold text-slate-900">Elias Miller</div>
+<div class="text-xs text-on-surface-variant">e.miller@kinetic.io</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-fixed-variant rounded-full text-[10px] font-bold tracking-tight">WORKER</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium">12 visits</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium">45 km</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-on-surface-variant hover:text-on-primary-container hover:bg-on-primary-container/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Sarah Chen" class="w-9 h-9 rounded-full" data-alt="headshot of a professional asian woman with glasses, smiling softly, neutral professional background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqSxm9O7VR5SSPNp-jSNoGS4ZDSRtwxPZENhchMKmHojCeMlvu4NTPP8V1doWHQduhlz5PinFdEpYrSQpcti_tt9_3MWGdy7XVGgOUMccM7XpZ8Z-A-xfEnPLkoGkusXFzo9d1W_dJNB5IuHcsyZZ7bG7KWeNkkgtMTl25XxG5Gm324Zp2WgY7LhV66ne-LFDkAaS48h9MZ8tVjakszCagzsml8b5mKq1ihbs_DC9sUYHzeyZ6NTkMs2We4iMcKSXDFAJ_YBcCddZr"/>
+<div>
+<div class="text-sm font-semibold text-slate-900">Sarah Chen</div>
+<div class="text-xs text-on-surface-variant">s.chen@kinetic.io</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-primary text-on-primary rounded-full text-[10px] font-bold tracking-tight">ADMIN</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium">--</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium">--</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-on-surface-variant hover:text-on-primary-container hover:bg-on-primary-container/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed text-xs font-bold">MK</div>
+<div>
+<div class="text-sm font-semibold text-slate-900">Marcus Knight</div>
+<div class="text-xs text-on-surface-variant">m.knight@kinetic.io</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-fixed-variant rounded-full text-[10px] font-bold tracking-tight">WORKER</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium">10 visits</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium">32 km</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-on-surface-variant hover:text-on-primary-container hover:bg-on-primary-container/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Olivia Vance" class="w-9 h-9 rounded-full" data-alt="portrait of a confident woman in a business casual outfit, outdoor soft focus background, midday light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLzAG6uXGIRu1z7YoZVwCofFhrp5mM6QbI5KkfE2rYjStQ8t9DursZu8878y0ZaSImmP7ht1nbvWFvC8O16c6GqeG_qioyV_NvolifUMBm1DGh92QxmWguyo-xrYVhS0NLOqhycwWrbUZt51Erze0EYjQFDY_7UZv_AKS7vjuGQ1BVcKwTU2q-5vRLo6tQCAvNF1Ef3xIrkzb95wcUUe_aMJipJ25MWQ-454x7Fzb7i3JbrShL4qS20jSY8cNkQYod3D2JPdR5_nta"/>
+<div>
+<div class="text-sm font-semibold text-slate-900">Olivia Vance</div>
+<div class="text-xs text-on-surface-variant">o.vance@kinetic.io</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-fixed-variant rounded-full text-[10px] font-bold tracking-tight">WORKER</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium">15 visits</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium">60 km</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-on-surface-variant hover:text-on-primary-container hover:bg-on-primary-container/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-surface-variant/10 flex items-center justify-between text-[11px] font-bold text-on-surface-variant tracking-wider uppercase px-8">
+<span>Showing 4 of 1,284 workers</span>
+<div class="flex gap-4">
+<button class="hover:text-primary transition-colors disabled:opacity-30" disabled="">Previous</button>
+<button class="hover:text-primary transition-colors">Next Page</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights Panel: The Editorial Side -->
+<aside class="col-span-12 lg:col-span-3 flex flex-col gap-8">
+<!-- Status Bento Card -->
+<div class="bg-primary text-on-primary p-6 rounded-xl relative overflow-hidden flex flex-col gap-6 h-fit">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-3xl mb-4 opacity-50" data-icon="hub">hub</span>
+<h3 class="text-xl font-bold tracking-tight leading-tight">Architecture Health Dashboard</h3>
+<p class="text-xs opacity-70 mt-2 font-medium">Operational integrity at 99.98% for the current quarter.</p>
+</div>
+<div class="relative z-10 mt-4 h-1 w-full bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-on-primary-container w-3/4 rounded-full"></div>
+</div>
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-on-primary-container/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Insights List -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-6">
+<h4 class="text-[10px] font-black tracking-widest uppercase text-on-surface-variant">System Alerts</h4>
+<div class="flex gap-4 items-start">
+<div class="w-2 h-2 rounded-full bg-error mt-1.5 shrink-0"></div>
+<div>
+<p class="text-xs font-bold">Unmapped Worker Detected</p>
+<p class="text-[11px] text-on-secondary-container mt-0.5">Marcus Knight has 3 visits with no GPS verification.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-2 h-2 rounded-full bg-on-primary-container mt-1.5 shrink-0"></div>
+<div>
+<p class="text-xs font-bold">New Policy Rollout</p>
+<p class="text-[11px] text-on-secondary-container mt-0.5">Updated mileage reimbursement logic for Q3.</p>
+</div>
+</div>
+</div>
+<!-- Quick Action Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-l-4 border-on-primary-container">
+<h4 class="text-xs font-bold text-slate-900">Training Portal</h4>
+<p class="text-[11px] text-on-surface-variant mt-1">Review the latest workforce orchestration protocols.</p>
+<button class="mt-4 w-full py-2 bg-surface-container-high rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-surface-container-highest transition-colors">Access Library</button>
+</div>
+</aside>
+</div>
+</main>
+<!-- SideNavBar (Mobile Trigger/Placeholder Logic) -->
+<div class="hidden">
+<!-- Structural references to SideNavBar from JSON -->
+<span>Architect Intel</span>
+<span>Enterprise Admin</span>
+<ul>
+<li>Dashboard</li>
+<li>Team</li>
+<li>Projects</li>
+<li>Schedules</li>
+<li>Settings</li>
+</ul>
+</div>
+<div class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4" id="add-user-modal">
+<div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onclick="document.getElementById('add-user-modal').classList.add('hidden')"></div>
+<div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-xl shadow-2xl relative z-10 overflow-hidden transform transition-all">
+<div class="px-6 py-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">Add New User</h3>
+<button class="text-slate-400 hover:text-slate-600 transition-colors" onclick="document.getElementById('add-user-modal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="p-6 space-y-4">
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold uppercase tracking-widest text-slate-500">Full Name</label>
+<input class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="e.g. Julian Casablancas" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold uppercase tracking-widest text-slate-500">Email Address</label>
+<input class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="name@kinetic.io" type="email"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold uppercase tracking-widest text-slate-500">Role</label>
+<select class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all">
+<option value="worker">Worker</option>
+<option value="admin">Admin</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold uppercase tracking-widest text-slate-500">Visit Target</label>
+<input class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all" type="number" value="12"/>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold uppercase tracking-widest text-slate-500">Distance Target (KM)</label>
+<input class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="45" type="number"/>
+</div>
+<div class="flex gap-3 pt-4">
+<button class="flex-1 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 transition-all" onclick="document.getElementById('add-user-modal').classList.add('hidden')" type="button">
+                    Cancel
+                </button>
+<button class="flex-1 py-2.5 rounded-lg bg-primary text-on-primary text-sm font-semibold hover:opacity-90 transition-all shadow-md" type="submit">
+                    Create User
+                </button>
+</div>
+</form>
+</div>
+</div></body></html>

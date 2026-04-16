@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kinetic Enterprise - Welcome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#f7f9fb",
+                    "surface-container-highest": "#e0e3e5",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eceef0",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-dim": "#d8dadc",
+                    "secondary-container": "#d0e1fb",
+                    "on-secondary-container": "#54647a",
+                    "surface": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#76777d",
+                    "outline-variant": "#c6c6cd",
+                    "on-surface-variant": "#45464d",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary-container": "#271901",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#497cff",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary-container": "#98805d",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-secondary-fixed": "#0b1c30",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "tertiary": "#000000",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-tint": "#0053db",
+                    "on-background": "#191c1e",
+                    "secondary": "#505f76",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#dbe1ff",
+                    "primary": "#000000",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "secondary-fixed": "#d3e4fe",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "tertiary-fixed": "#fcdeb5",
+                    "on-surface": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-fixed": "#271901",
+                    "inverse-surface": "#2d3133",
+                    "inverse-primary": "#b4c5ff",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "primary-container": "#00174b",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface overflow-hidden">
+<!-- Sidebar Navigation Shell (Hidden for focused onboarding journey) -->
+<aside class="h-screen w-64 fixed left-0 border-r-0 bg-slate-50 dark:bg-slate-900 flex flex-col p-4 gap-2 z-10 hidden md:flex">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-black text-slate-900 dark:text-white">Onboarding</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400">Setup your workspace</p>
+</div>
+<nav class="space-y-1">
+<div class="flex items-center gap-3 px-3 py-2.5 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-lg shadow-sm transition-all duration-200 ease-in-out cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="door_open">door_open</span>
+<span class="text-sm font-medium">Welcome</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span class="text-sm font-medium">Role</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="person_edit">person_edit</span>
+<span class="text-sm font-medium">Profile</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+<span class="text-sm font-medium">Complete</span>
+</div>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="relative min-h-screen md:ml-64 flex flex-col items-center justify-center overflow-hidden">
+<!-- Architectural Backdrop -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-tr from-surface via-surface-container-low to-secondary-container/20"></div>
+<img class="w-full h-full object-cover opacity-40 mix-blend-multiply" data-alt="Modern architectural abstract with clean lines, minimalist concrete surfaces and dramatic soft shadows in a bright airy studio environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzzi32aC8B9--cOX5Y-TgZe9QbTlVPSJ-VFA99Xo7vioPuG1AYnT7pEKxw1wIAX0KFLSLKDl6CZ5En_UVOzkHLg-OWeBtG7T5CaoPSRTWU1HRdU8d4xnGt_UpCjC_JWDeyuPraksJu06kvT47gCQLuzeHZdiC90JlG1hrTXLVNVSmUfPaYOcYRKc3ERIJTKWMfg3zK7E8AqtwlIaYxAw_roknWM5IvFrWk6Y5JpLDN7ccXN2TBeY88fXjafcp_UyHjjq90rlYzGbYC"/>
+<!-- Asymmetrical Geometric Elements -->
+<div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-on-primary-container/5 rounded-full blur-3xl"></div>
+<div class="absolute bottom-[-20%] left-[-10%] w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+<!-- Onboarding Card (Editorial Layout) -->
+<div class="relative z-10 w-full max-w-5xl px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<!-- Hero Section -->
+<div class="md:col-span-7 flex flex-col space-y-8">
+<div class="space-y-4">
+<div class="inline-flex items-center px-3 py-1 bg-surface-container-highest rounded-full">
+<span class="text-[10px] font-bold tracking-[0.15em] text-on-surface-variant uppercase">Phase 01 — Introduction</span>
+</div>
+<h1 class="text-6xl md:text-7xl font-black tracking-tighter text-primary leading-[0.95]">
+                        Kinetic <br/>Enterprise
+                    </h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-medium max-w-xl leading-relaxed">
+                        Precision orchestration for the modern workforce. Seamlessly align strategy, data, and human potential in one unified command center.
+                    </p>
+</div>
+<div class="flex items-center gap-6 pt-4">
+<button class="px-8 py-4 bg-primary text-on-primary text-sm font-bold rounded-xl shadow-2xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all duration-200 flex items-center gap-3">
+                        Get Started
+                        <span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="px-8 py-4 bg-transparent text-on-surface text-sm font-bold hover:bg-surface-container-low rounded-xl transition-all duration-150">
+                        View Platform Tour
+                    </button>
+</div>
+</div>
+<!-- Insights / Visual Panel (Asymmetrical Column) -->
+<div class="md:col-span-5 hidden lg:block">
+<div class="glass-panel p-8 rounded-full border border-white/20 shadow-2xl space-y-8">
+<!-- Stat Card 1 -->
+<div class="flex items-start gap-4 p-4 bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="p-3 bg-secondary-container rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+</div>
+<div>
+<p class="text-[10px] font-bold tracking-widest text-outline uppercase">Efficiency Gains</p>
+<p class="text-2xl font-black text-primary">+42%</p>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="flex items-start gap-4 p-4 bg-surface-container-lowest rounded-xl shadow-sm translate-x-8">
+<div class="p-3 bg-primary-fixed text-on-primary-fixed-variant rounded-lg">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+</div>
+<div>
+<p class="text-[10px] font-bold tracking-widest text-outline uppercase">Active Assets</p>
+<p class="text-2xl font-black text-primary">12.8k</p>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="flex items-start gap-4 p-4 bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="p-3 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-lg">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+</div>
+<div>
+<p class="text-[10px] font-bold tracking-widest text-outline uppercase">Real-time Sync</p>
+<p class="text-2xl font-black text-primary">Live</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Global Indicators -->
+<div class="absolute bottom-12 left-12 md:left-[19rem] flex items-center gap-8">
+<div class="flex gap-2">
+<div class="w-8 h-1.5 bg-primary rounded-full"></div>
+<div class="w-2 h-1.5 bg-surface-container-highest rounded-full"></div>
+<div class="w-2 h-1.5 bg-surface-container-highest rounded-full"></div>
+<div class="w-2 h-1.5 bg-surface-container-highest rounded-full"></div>
+</div>
+<p class="text-[11px] font-bold tracking-widest text-outline uppercase">Establish Identity</p>
+</div>
+<!-- Help/Settings Anchors (From TopNavBar Spec) -->
+<div class="absolute top-8 right-8 flex items-center gap-4">
+<div class="p-2.5 rounded-full text-slate-500 hover:bg-slate-200/50 transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</div>
+<div class="p-2.5 rounded-full text-slate-500 hover:bg-slate-200/50 transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</div>
+</div>
+</main>
+</body></html>

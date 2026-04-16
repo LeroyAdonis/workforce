@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workforce Command - Site Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#d8dadc",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "primary-fixed": "#dbe1ff",
+                    "inverse-surface": "#2d3133",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#45464d",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-bright": "#f7f9fb",
+                    "tertiary": "#000000",
+                    "error": "#ba1a1a",
+                    "secondary": "#505f76",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e6e8ea",
+                    "outline-variant": "#c6c6cd",
+                    "inverse-primary": "#b4c5ff",
+                    "on-primary-container": "#497cff",
+                    "surface": "#f7f9fb",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "surface-container": "#eceef0",
+                    "primary": "#000000",
+                    "background": "#f7f9fb",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed": "#fcdeb5",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#d0e1fb",
+                    "primary-container": "#00174b",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-variant": "#e0e3e5",
+                    "on-surface": "#191c1e",
+                    "tertiary-container": "#271901",
+                    "on-tertiary-fixed": "#271901",
+                    "surface-tint": "#0053db",
+                    "outline": "#76777d",
+                    "on-secondary-container": "#54647a",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#98805d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition {
+            transition: background-color 0.3s ease;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<header class="bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl w-full sticky top-0 z-50 shadow-sm dark:shadow-none tonal-transition bg-slate-100 dark:bg-slate-800">
+<div class="flex items-center justify-between px-8 py-3 w-full">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold tracking-tighter text-slate-900 dark:text-white">Workforce Command</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors font-inter tracking-tight" href="#">Users</a>
+<a class="text-slate-900 dark:text-white font-semibold border-b-2 border-slate-900 dark:border-white pb-1 font-inter tracking-tight" href="#">Sites</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors font-inter tracking-tight" href="#">Analytics</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors font-inter tracking-tight" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-500 hover:bg-slate-200/50 p-2 rounded-lg transition-all duration-300">notifications</button>
+<button class="material-symbols-outlined text-slate-500 hover:bg-slate-200/50 p-2 rounded-lg transition-all duration-300">settings</button>
+<div class="h-8 w-8 rounded-full overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="Close up portrait of a professional male administrator in a clean modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuWX6LikSFfidh0hNxHaqJiToA2TW-sPjAvpy-vu1uCbS2pzXWA2J72sNloBVa4vDe7BkgK0WIkIaOF7PuajFyfgLvwH1BvaIo0QdN7JsTDAYe4yDe6xHFZANqmVxMsRH_-Bu0itHxvHeYDAG3cIEflOgNoyIVgU-0gr_3ozHXv3wcX5MI-aslZNEJVrPX9_d_om-VGsRPOutT0izO5IcypTiMhe4BqYwEHaav9dQKLpGsOX-LANF3C1aOgynSEa5WEAEBRZI3UhBv"/>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-xl text-sm font-medium hover:opacity-90 transition-all">Add New</button>
+</div>
+</div>
+</header>
+<main class="flex min-h-[calc(100vh-64px)]">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 flex flex-col p-4 gap-2 border-r border-transparent">
+<div class="mb-8 px-2 pt-4">
+<h1 class="font-black text-xl tracking-widest uppercase text-slate-900 dark:text-white">Architect Intel</h1>
+<p class="text-xs text-slate-500 mt-1 font-inter antialiased uppercase tracking-widest">Enterprise Admin</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-out active:scale-95 transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-out active:scale-95 transform" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Team</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm rounded-xl font-medium transition-all duration-200 ease-out active:scale-95 transform" href="#">
+<span class="material-symbols-outlined">location_on</span>
+<span class="text-sm font-medium">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-out active:scale-95 transform" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-sm font-medium">Schedules</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-out active:scale-95 transform" href="#">
+<span class="material-symbols-outlined">tune</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 flex flex-col gap-2">
+<button class="bg-secondary-container text-on-secondary-container px-4 py-3 rounded-xl text-sm font-medium flex items-center justify-center gap-2 mb-4">
+<span class="material-symbols-outlined text-sm">support</span>
+                    Support Portal
+                </button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<div class="flex-1 ml-64 p-8 bg-surface">
+<!-- Header Section -->
+<div class="mb-10">
+<h2 class="text-4xl font-extrabold tracking-tight text-on-background mb-2">Site Management</h2>
+<p class="text-on-surface-variant">Monitor and coordinate active project sites across the global network.</p>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Sites List -->
+<div class="col-span-8 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-lg font-bold tracking-tight">Active Deployments</h3>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Filter By Region</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Sort: Alphabetical</span>
+</div>
+</div>
+<!-- Table-like Structure with Editorial Space -->
+<div class="space-y-4">
+<!-- Site Row 1 -->
+<div class="grid grid-cols-6 items-center p-4 hover:bg-surface-container-low rounded-xl transition-all duration-300">
+<div class="col-span-2 flex flex-col">
+<span class="text-sm font-bold text-slate-900">Meridian Logistics Hub</span>
+<span class="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Chicago, IL</span>
+</div>
+<div class="col-span-1 text-sm text-on-surface-variant">42.3601° N</div>
+<div class="col-span-1 flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a focused operations manager wearing technical gear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-jBycC3rHuGVQdAq29QdZthoHz7ESiIcJ39pnDvZ8AQZILjUIYm7seZu1JwiCaqsH_pMurO52xME5DmXdg0UNLWXKHGlJWBf0GTHiM-BTHuWVE_a8z8VLLp-WsTF29PNA3tQXUh8oTMnZxzrsWl1NXXuO5TAWw4rFbLja6TLVYSo6PiPdBlh-2-D3bSca_5amJJ1DIYDfq6s9T5qA-kX6j0mul1npNv6BMhsGI8Blc48Zjf6oloAS-WlPXSmdBi0fjZ3m8pUeX093"/>
+</div>
+<span class="text-xs font-medium">Alex Rivera</span>
+</div>
+<div class="col-span-1">
+<span class="px-3 py-1 bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-tighter rounded-full">Active</span>
+</div>
+<div class="col-span-1 flex justify-end">
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-900">more_horiz</button>
+</div>
+</div>
+<!-- Site Row 2 -->
+<div class="grid grid-cols-6 items-center p-4 hover:bg-surface-container-low rounded-xl transition-all duration-300">
+<div class="col-span-2 flex flex-col">
+<span class="text-sm font-bold text-slate-900">Pacific Data Center</span>
+<span class="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Seattle, WA</span>
+</div>
+<div class="col-span-1 text-sm text-on-surface-variant">47.6062° N</div>
+<div class="col-span-1 flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a professional engineer in a tech environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmgZNXnCZATiESYt1tvM-mu1ixgOiU41Iahms0mLO0Y5NhOd0DKyl5Wd3DjwYwPEoJWbtKqRC1hymfklQd_sl8_wurbL8bnzGFUtyG5fwDOBkQprijcBGc3Aoq7vYAAYNIfl1MA-m-Z4JBezylIRVGw7L6vc4NxMRMtRp_ocPxULPQUDk3TMWv6Ay7qmVurJCN743WLjPNtMRxSLb9-WPjMl38zOI6qCwR5h5vxNpSCVhJ87Joe45PuYZtGMsVjEIvIkzRUMT6PM5y"/>
+</div>
+<span class="text-xs font-medium">Sarah Chen</span>
+</div>
+<div class="col-span-1">
+<span class="px-3 py-1 bg-yellow-100 text-yellow-700 text-[10px] font-bold uppercase tracking-tighter rounded-full">Pending</span>
+</div>
+<div class="col-span-1 flex justify-end">
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-900">more_horiz</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Insights Sidebar -->
+<div class="col-span-4 flex flex-col gap-6">
+<div class="bg-primary text-on-primary rounded-xl p-8 flex flex-col gap-6 relative overflow-hidden">
+<div class="relative z-10">
+<span class="text-[10px] font-black uppercase tracking-widest opacity-60">Fleet Efficiency</span>
+<h4 class="text-5xl font-extrabold mt-4 mb-2">94.2%</h4>
+<p class="text-xs opacity-80 leading-relaxed max-w-[200px]">Optimal performance detected across all North American sites.</p>
+</div>
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-on-primary-container opacity-20 rounded-full blur-3xl"></div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<h4 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6">Regional Distribution</h4>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Americas</span>
+<div class="w-24 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[70%]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">EMEA</span>
+<div class="w-24 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[45%]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">APAC</span>
+<div class="w-24 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[30%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- OVERLAY MODAL: Add New Site -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-6 sm:p-12">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-slate-900/30 backdrop-blur-md"></div>
+<!-- Modal Content -->
+<div class="relative w-full max-w-xl glass-panel rounded-xl shadow-[0_20px_40px_rgba(25,28,30,0.06)] overflow-hidden">
+<div class="p-10">
+<header class="mb-10 flex justify-between items-start">
+<div>
+<h3 class="text-3xl font-extrabold tracking-tight text-slate-900 leading-tight">Register New Site</h3>
+<p class="text-sm text-slate-500 mt-2">Establish a new command node within the workforce infrastructure.</p>
+</div>
+<button class="p-2 hover:bg-slate-200/50 rounded-full transition-all">
+<span class="material-symbols-outlined text-slate-900">close</span>
+</button>
+</header>
+<form class="space-y-8">
+<!-- Site Name Field -->
+<div>
+<label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Internal Site Designation</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary-fixed-dim focus:bg-surface-container-lowest transition-all placeholder:text-slate-400" placeholder="e.g. Atlas Foundry West" type="text"/>
+</div>
+<!-- Address/Coordinates Field -->
+<div>
+<label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Deployment Location</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 pl-10 text-sm focus:ring-2 focus:ring-primary-fixed-dim focus:bg-surface-container-lowest transition-all placeholder:text-slate-400" placeholder="Street Address or DMS Coordinates" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">location_on</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<!-- Site Coordinator Field -->
+<div>
+<label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Assigned Coordinator</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary-fixed-dim focus:bg-surface-container-lowest transition-all appearance-none cursor-pointer">
+<option value="">Select Personnel</option>
+<option value="1">Marcus Aurelius</option>
+<option value="2">Elena Vance</option>
+<option value="3">Jackson Storm</option>
+</select>
+</div>
+<!-- Status Toggle -->
+<div>
+<label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Operational Status</label>
+<div class="flex items-center gap-3 py-3">
+<button class="relative inline-flex h-6 w-11 items-center rounded-full bg-primary transition-all" type="button">
+<span class="sr-only">Enable site status</span>
+<span class="inline-block h-4 w-4 translate-x-6 rounded-full bg-white transition-all shadow-sm"></span>
+</button>
+<span class="text-sm font-medium text-slate-900">Active</span>
+</div>
+</div>
+</div>
+<!-- Visual Separator (Editorial Style) -->
+<div class="pt-4 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-end gap-4 pt-4">
+<button class="px-6 py-3 text-sm font-bold text-slate-500 hover:text-slate-900 transition-all uppercase tracking-widest" type="button">Cancel</button>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl text-sm font-bold hover:opacity-90 shadow-xl shadow-slate-900/10 transition-all active:scale-95 transform" type="submit">Create Site</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</body></html>

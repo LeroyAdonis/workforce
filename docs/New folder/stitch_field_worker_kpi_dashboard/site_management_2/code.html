@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Site Management | Workforce Command</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#54647a",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "outline": "#76777d",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed": "#d3e4fe",
+                    "secondary": "#505f76",
+                    "inverse-surface": "#2d3133",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#497cff",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "surface": "#f7f9fb",
+                    "surface-container-low": "#f2f4f6",
+                    "on-surface": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#271901",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "surface-bright": "#f7f9fb",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-tint": "#0053db",
+                    "surface-dim": "#d8dadc",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "background": "#f7f9fb",
+                    "primary": "#000000",
+                    "tertiary": "#000000",
+                    "primary-container": "#00174b",
+                    "outline-variant": "#c6c6cd",
+                    "on-primary-fixed": "#00174b",
+                    "on-tertiary-fixed": "#271901",
+                    "on-surface-variant": "#45464d",
+                    "on-background": "#191c1e",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-secondary-fixed": "#0b1c30",
+                    "tertiary-fixed": "#fcdeb5",
+                    "secondary-container": "#d0e1fb",
+                    "primary-fixed": "#dbe1ff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-tertiary-container": "#98805d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition {
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none flex items-center justify-between px-8 py-3 w-full">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold tracking-tighter text-slate-900 dark:text-white">Workforce Command</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Users</a>
+<a class="text-slate-900 dark:text-white font-semibold border-b-2 border-slate-900 dark:border-white pb-1" href="#">Sites</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Analytics</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 rounded-lg transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 rounded-lg transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="Professional headshot of a senior system administrator in a modern office setting, clean lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb29otoXkto0KrbxugPW9Ph72_SOsN_WA7mZKf950WC-NpFjLd6gPd5BOEvvQH5PwGFKOJ2KGxSjWo7s6ElUOX-BBHfp0-uQLZghoDAvj_jjlSmIIh9i9oJ6TF_1yJH85rFxDMjzhhXl7OaRVR3lTuUuWmHrHmRox_0Xi56bnD2pNu3C0oZWg5E4NIJzB68m1ulGoVqTnc7GngnXjuh63Jbt_x1QBdLLoEvIc99KKUD0t0Zwr-EhBH2hTYRn8qS8riLfWZKF_mMhFF"/>
+</div>
+</div>
+</header>
+<div class="flex min-h-[calc(100vh-64px)]">
+<!-- SideNavBar -->
+<aside class="h-[calc(100vh-64px)] w-64 sticky left-0 top-16 bg-slate-50 dark:bg-slate-950 flex flex-col p-4 gap-2 border-r border-slate-200/50 dark:border-slate-800/50">
+<div class="px-2 py-4 mb-4">
+<h2 class="font-black text-xl tracking-widest uppercase text-slate-900 dark:text-white">Architect Intel</h2>
+<p class="text-xs text-slate-500 dark:text-slate-400">Enterprise Admin</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 active:scale-95 transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 active:scale-95 transform" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium text-sm">Team</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm rounded-xl font-medium transition-all duration-200 active:scale-95 transform" href="#">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-medium text-sm">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 active:scale-95 transform" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-medium text-sm">Schedules</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 active:scale-95 transform" href="#">
+<span class="material-symbols-outlined">tune</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-4">
+<button class="w-full py-3 bg-secondary-container text-on-secondary-container rounded-xl text-xs font-bold uppercase tracking-widest hover:brightness-95 transition-all">
+                    Support Portal
+                </button>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container/10 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-medium text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-7xl mx-auto space-y-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-1">
+<h1 class="text-4xl font-extrabold tracking-tight text-primary">Site Management</h1>
+<p class="text-on-secondary-container max-w-lg">Manage and monitor your global project locations, compliance status, and real-time site activity logs.</p>
+</div>
+<button class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-primary/20 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+                        Add New Site
+                    </button>
+</div>
+<!-- Stats Overview (Asymmetric Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-8 bg-surface-container-lowest p-6 rounded-xl shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold tracking-widest uppercase text-outline">Network Vitality</span>
+<span class="text-on-primary-container text-xs font-bold px-2 py-1 bg-secondary-container rounded-full">98% UP</span>
+</div>
+<div class="h-32 w-full bg-surface-container rounded-lg overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-r from-on-primary-container/10 to-transparent"></div>
+<!-- Mock Visualization -->
+<div class="absolute bottom-0 left-0 right-0 h-16 flex items-end gap-1 px-4">
+<div class="w-full bg-on-primary-container/20 h-[40%] rounded-t-sm"></div>
+<div class="w-full bg-on-primary-container/20 h-[60%] rounded-t-sm"></div>
+<div class="w-full bg-on-primary-container/40 h-[80%] rounded-t-sm"></div>
+<div class="w-full bg-on-primary-container/20 h-[50%] rounded-t-sm"></div>
+<div class="w-full bg-on-primary-container/60 h-[90%] rounded-t-sm"></div>
+<div class="w-full bg-on-primary-container/30 h-[40%] rounded-t-sm"></div>
+<div class="w-full bg-on-primary-container/20 h-[30%] rounded-t-sm"></div>
+<div class="w-full bg-on-primary-container/40 h-[70%] rounded-t-sm"></div>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary text-on-primary p-6 rounded-xl shadow-lg flex flex-col justify-between">
+<div>
+<span class="text-xs font-bold tracking-widest uppercase opacity-60">Total Active Sites</span>
+<div class="text-5xl font-black mt-2">142</div>
+</div>
+<div class="flex items-center gap-2 text-xs opacity-80">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                            +12% from last quarter
+                        </div>
+</div>
+</div>
+<!-- Filters and Search -->
+<div class="flex flex-col md:flex-row gap-4 items-center bg-surface-container-low p-4 rounded-xl">
+<div class="relative flex-1 w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg pl-10 py-2.5 text-sm focus:ring-2 focus:ring-on-primary-container/20 transition-all" placeholder="Search by site name, ID, or coordinator..." type="text"/>
+</div>
+<div class="flex items-center gap-2 w-full md:w-auto">
+<button class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-lowest text-sm font-medium rounded-lg hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                            Filter
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-lowest text-sm font-medium rounded-lg hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+                            Export
+                        </button>
+</div>
+</div>
+<!-- Sites Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-[0.1em] text-outline">Site Detail</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-[0.1em] text-outline">Location / Region</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-[0.1em] text-outline">Status</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-[0.1em] text-outline">Visits (30d)</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-[0.1em] text-outline text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant/30">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">factory</span>
+</div>
+<div>
+<div class="font-bold text-sm text-slate-900">Atlas Foundry West</div>
+<div class="text-xs text-outline">ID: AFW-992-K</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-slate-700">3021 S Wilkeson St, Tacoma</div>
+<div class="text-xs text-outline">Washington State</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+<span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Active</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="text-sm font-semibold">2,104</span>
+<div class="flex -space-x-2">
+<div class="h-6 w-6 rounded-full border-2 border-white bg-slate-200"></div>
+<div class="h-6 w-6 rounded-full border-2 border-white bg-slate-300"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-outline hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-outline hover:text-error transition-all">
+<span class="material-symbols-outlined text-lg">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-lg bg-surface-container flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+</div>
+<div>
+<div class="font-bold text-sm text-slate-900">Ceres Steel Works</div>
+<div class="text-xs text-outline">ID: CSW-441-M</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-slate-700">1 North Broadway, Gary</div>
+<div class="text-xs text-outline">Indiana Region</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]"></span>
+<span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Maintenance</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="text-sm font-semibold">652</span>
+<div class="flex -space-x-2">
+<div class="h-6 w-6 rounded-full border-2 border-white bg-slate-200"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-outline hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-outline hover:text-error transition-all">
+<span class="material-symbols-outlined text-lg">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<div>
+<div class="font-bold text-sm text-slate-900">Zephyr Terminal</div>
+<div class="text-xs text-outline">ID: ZPH-088-T</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-slate-700">Ocean Terminal, Savannah</div>
+<div class="text-xs text-outline">Georgia Coastal</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+<span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Active</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="text-sm font-semibold">4,289</span>
+<div class="flex -space-x-2">
+<div class="h-6 w-6 rounded-full border-2 border-white bg-slate-200"></div>
+<div class="h-6 w-6 rounded-full border-2 border-white bg-slate-300"></div>
+<div class="h-6 w-6 rounded-full border-2 border-white bg-slate-400"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-outline hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-outline hover:text-error transition-all">
+<span class="material-symbols-outlined text-lg">block</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer / Pagination -->
+<div class="flex items-center justify-between py-4">
+<span class="text-sm text-outline">Showing 1 to 10 of 142 sites</span>
+<div class="flex items-center gap-1">
+<button class="p-2 rounded-lg hover:bg-surface-container-low text-outline disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary text-sm font-bold">1</button>
+<button class="px-4 py-2 rounded-lg hover:bg-surface-container-low text-sm font-bold">2</button>
+<button class="px-4 py-2 rounded-lg hover:bg-surface-container-low text-sm font-bold">3</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-low text-outline">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Map Insight Overlay (Bento Component) -->
+<div class="fixed bottom-8 right-8 w-80 bg-slate-900 text-white p-6 rounded-2xl shadow-2xl space-y-4 border border-slate-800">
+<div class="flex items-center justify-between">
+<h3 class="text-xs font-bold tracking-[0.2em] uppercase text-slate-500">Live Geo-Pulse</h3>
+<div class="flex gap-1">
+<span class="w-1.5 h-1.5 bg-on-primary-container rounded-full"></span>
+<span class="w-1.5 h-1.5 bg-slate-700 rounded-full"></span>
+</div>
+</div>
+<div class="h-32 rounded-xl bg-slate-800 overflow-hidden relative grayscale opacity-70 group hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Highly detailed topological map with blue glowing data points representing urban infrastructure hubs" data-location="Global" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPn-cllu3RqahtCjwBsgyE9oZ527m0iDFZP37vv5ZBcuqf_5iza68VZFsiN9n_k2d7dTJ7g63wcnfsNqLnxkZo21cEuCKmNg4B7TVac7tQ8IHirt6-kGA2jzSuAzQM8OEAAHLy8lItVeLfQmfg-Q5dcpJ_zpQz9RanaJgnwL5L9xAiVk_hWfTfiYKC8wBA3sXKTb34oGvb6bC--vLJuM6rXhbib9DRnFBfU9hqSW8mA5GY4wmreVL_xiKbywWvkwVfxhh7P47KAX_D"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+</div>
+<div class="space-y-1">
+<div class="text-xs text-slate-400">Current Hotspot</div>
+<div class="text-sm font-bold">Greater Seattle Area</div>
+</div>
+</div>
+</body></html>

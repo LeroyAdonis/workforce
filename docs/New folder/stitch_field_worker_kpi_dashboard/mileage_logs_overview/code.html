@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mileage Logs &amp; Fleet Status | Architectural Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#0053db",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "outline-variant": "#c6c6cd",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-container": "#271901",
+                    "surface-container": "#eceef0",
+                    "surface": "#f7f9fb",
+                    "on-tertiary-container": "#98805d",
+                    "tertiary": "#000000",
+                    "inverse-primary": "#b4c5ff",
+                    "on-surface": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "secondary-container": "#d0e1fb",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed": "#fcdeb5",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-fixed": "#271901",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "secondary-fixed": "#d3e4fe",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-high": "#e6e8ea",
+                    "on-error": "#ffffff",
+                    "background": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#2d3133",
+                    "primary-fixed": "#dbe1ff",
+                    "on-surface-variant": "#45464d",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-error-container": "#93000a",
+                    "outline": "#76777d",
+                    "on-secondary-container": "#54647a",
+                    "on-primary-container": "#497cff",
+                    "on-secondary-fixed": "#0b1c30",
+                    "surface-bright": "#f7f9fb",
+                    "primary": "#000000",
+                    "secondary": "#505f76",
+                    "primary-container": "#00174b",
+                    "on-primary-fixed": "#00174b",
+                    "surface-variant": "#e0e3e5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-100 flex flex-col py-8 px-4 border-r border-slate-200/50">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-black text-slate-900 tracking-tight">Precision Orchestrator</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold mt-1">Architectural Intelligence</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:text-slate-900 hover:bg-slate-200 transition-all duration-150 ease-in-out scale-95 uppercase text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">dashboard</span> Command Center
+            </a>
+<!-- ACTIVE TAB: Mileage Logs -->
+<a class="flex items-center gap-3 bg-white text-slate-900 rounded-lg px-4 py-3 shadow-sm uppercase text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined">distance</span> Mileage Logs
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:text-slate-900 hover:bg-slate-200 transition-all duration-150 ease-in-out scale-95 uppercase text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">assessment</span> Automated Reports
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:text-slate-900 hover:bg-slate-200 transition-all duration-150 ease-in-out scale-95 uppercase text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">local_shipping</span> Fleet Status
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:text-slate-900 hover:bg-slate-200 transition-all duration-150 ease-in-out scale-95 uppercase text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">groups</span> Workforce Analytics
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:text-slate-900 hover:bg-slate-200 transition-all duration-150 ease-in-out scale-95 uppercase text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">rule</span> Policy Manager
+            </a>
+</nav>
+<div class="mt-auto space-y-1 border-t border-slate-200/50 pt-4">
+<a class="flex items-center gap-3 text-slate-500 px-4 py-2 hover:text-slate-900 uppercase text-[11px] font-bold tracking-widest" href="#">
+<span class="material-symbols-outlined text-base">help</span> Help Center
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-2 hover:text-slate-900 uppercase text-[11px] font-bold tracking-widest" href="#">
+<span class="material-symbols-outlined text-base">manage_accounts</span> Account Settings
+            </a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar Component -->
+<header class="w-full h-16 sticky top-0 z-40 bg-slate-50 flex justify-between items-center px-8">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold tracking-widest uppercase text-slate-900">Mileage Logs &amp; Fleet Status</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-white text-slate-900 px-4 py-2 rounded-xl text-sm font-semibold shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors">
+                    Mileage Sync
+                </button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-slate-900 to-blue-900 hover:opacity-90 transition-opacity">
+                    Generate Proforma Notice
+                </button>
+<div class="flex items-center gap-2 ml-4">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer p-2 hover:bg-slate-200 rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer p-2 hover:bg-slate-200 rounded-full transition-colors">settings</span>
+<img alt="Administrator Avatar" class="w-8 h-8 rounded-full ml-2 border border-slate-200" data-alt="professional male administrator portrait in corporate setting with soft natural window lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChFmD8Vh8FLUFR-W_eMw0h_RpbtkGu9iLCi0dmmcRoM0kXNix7DnJIgHSbIz8BeIn0bBhhMXr6g9SkYEqON9dtsiXaJlpHGMcflRswk33LCOTf1KgA0KUToJrzIQTC5gBx6tWXwuwqSFbnaVut3CiMNEKDorOiFRkXp0YAc9XCGWd2eA24-Wi_ax1uUkUY8J-Rcjgv2ug_rw4Uvjs-V6KScJKLi84QHVRJrWynxfM-RiHFpR6OX-YblPmcjLU1H7D_72BmVaY8Qqbc"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-8 space-y-8">
+<!-- Bento Grid Summary -->
+<section class="grid grid-cols-12 gap-6">
+<!-- Main KPI: Total KM -->
+<div class="col-span-12 md:col-span-5 bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between min-h-[220px]">
+<div>
+<span class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold">Fleet Performance</span>
+<h3 class="text-4xl font-black mt-2 text-slate-900">42,892.4 <span class="text-lg font-medium text-slate-400">km</span></h3>
+<p class="text-sm text-slate-500 mt-1">Total Distance Traveled (Current Month)</p>
+</div>
+<div class="flex items-center gap-3 mt-6">
+<div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-blue-600 rounded-full" style="width: 74%"></div>
+</div>
+<span class="text-xs font-bold text-blue-600">+12.4% vs LY</span>
+</div>
+</div>
+<!-- Secondary KPI: Active Vehicles -->
+<div class="col-span-12 md:col-span-3 bg-surface-container-lowest rounded-xl p-6 flex flex-col border-l-4 border-slate-900">
+<span class="material-symbols-outlined text-slate-400 mb-4">local_shipping</span>
+<span class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold">Active Fleet</span>
+<h3 class="text-2xl font-black mt-1 text-slate-900">124</h3>
+<p class="text-xs text-slate-500 mt-1">Vehicles currently in transit</p>
+<div class="mt-auto pt-4 flex -space-x-2">
+<img alt="Worker" class="w-8 h-8 rounded-full border-2 border-white" data-alt="Portrait of a young male delivery worker in uniform smiling softly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoWLNxa7S9KFfPT-jbUgICPkqAkJswGkTiyCyH5Ew2oowQfm453U9ncZL8SBatHfRuEJOfUr6yJrU5XGDeRMfcGW5_NFMx2M5rdIbalM0A9HAcZSzvxianTVS0eivZkK9H74N745QRSCT2ljVJ5M6EgDVccwZ3XAQNfJxfeanoOsjuUk5tGmdj6ty2wkPws5ZQiiE9OG9xq_15Zlk5ko3jHxfWpnFPe77VWdH3XAAbtm7bdtNSXl1baF0xQYZrtYCqyPMMS16xTQr0"/>
+<img alt="Worker" class="w-8 h-8 rounded-full border-2 border-white" data-alt="Portrait of a female logistics coordinator in professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvUqVe2w3KSh95LGztv-UhQcpg6uOEP4Szjq3tf56SVmNC2BhlxiWZ22ONVSTCQsdI7z757cqpLWux1xwccJwkYVwY8FBkhOw2hpn2Hv3Cge9lZApg-pNcNXXNgc32jjYerx6Pkv17_IiZ1c8cgSehO-Lrz3rj9qm1x7Z3R5dFpphQTAzj-59s77XmOcP7B3GVAIDOjC0DzymnGJ97D04jtY7a5Y-kgkRLqLzDzYW5IVsY5ITWtnbVnHa7cUEjJP2K-8hHg-hZJZy7"/>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-500">+122</div>
+</div>
+</div>
+<!-- Action Card: Sync Status -->
+<div class="col-span-12 md:col-span-4 bg-slate-900 text-white rounded-xl p-6 flex flex-col justify-between overflow-hidden relative">
+<div class="z-10">
+<span class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold">System Status</span>
+<div class="flex items-center gap-2 mt-2">
+<div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+<h3 class="text-lg font-bold">SharePoint Synced</h3>
+</div>
+<p class="text-xs text-slate-400 mt-1 leading-relaxed">All approved logs were automatically pushed to the enterprise repository at 04:00 AM.</p>
+</div>
+<button class="z-10 mt-6 w-full py-2 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold uppercase tracking-widest transition-colors backdrop-blur-md border border-white/10 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">sync</span> Sync to SharePoint
+                    </button>
+<!-- Abstract Background Shape -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-600/20 rounded-full blur-3xl"></div>
+</div>
+</section>
+<!-- Table Section -->
+<section class="bg-surface-container-lowest rounded-xl overflow-hidden">
+<div class="p-6 flex justify-between items-center bg-surface-container-low">
+<div>
+<h4 class="text-base font-bold text-slate-900">Recent Mileage Logs</h4>
+<p class="text-xs text-slate-500">Real-time submission stream from field workforce</p>
+</div>
+<div class="flex gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="pl-9 pr-4 py-2 bg-white border-none rounded-lg text-xs w-64 focus:ring-1 focus:ring-slate-300" placeholder="Filter by name..." type="text"/>
+</div>
+<button class="p-2 bg-white rounded-lg border-none hover:bg-slate-50 text-slate-500 transition-colors">
+<span class="material-symbols-outlined text-sm">tune</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400">Worker</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400">Date</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400">Route / Vehicle</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400 text-right">Distance</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400">Status</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-slate-200 rounded-full overflow-hidden">
+<img alt="Marcus" data-alt="Portrait of a bearded male professional in a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDr0kQJS_2PgZ3mt-2I86jmcN2gt8n_ekSRhSgml41VRTQK2AGQZZ-KrmxhhjJYE0vUI3PJJCLEGFNtqn0LjxzTPO-EWThJsjduCT3riVpfwqko4uTI2_Fa6z7tQJW6u4SlSGc98HIFuMRcozxDZ_ZJg4705wITgYNqdYApIkYF1F0aswHbmN3XWTf6aRUvo8fVNe30dK9_HCpwWrt0NElmzc_jfsKiLWNbPTsJT5-H1IuvkKFEHcNnOst5R6Q4ocsqms_P4_IlfPH"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900">Marcus Thorne</p>
+<p class="text-[10px] text-slate-500">ID: #MT-9021</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-xs text-slate-600">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-xs font-medium text-slate-900">London Hub → Birmingham</span>
+<span class="text-[10px] text-slate-400 uppercase tracking-wider">Ford Transit (LJ69 WRV)</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="text-sm font-black text-slate-900">164.2</span>
+<span class="text-[10px] text-slate-400 ml-1">km</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-yellow-50 text-yellow-700 text-[10px] font-black uppercase tracking-widest rounded-full">Pending</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors opacity-0 group-hover:opacity-100">Approve for Reimbursement</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-slate-200 rounded-full overflow-hidden text-xs flex items-center justify-center font-bold">SL</div>
+<div>
+<p class="text-sm font-bold text-slate-900">Sarah Lund</p>
+<p class="text-[10px] text-slate-500">ID: #SL-4412</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-xs text-slate-600">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-xs font-medium text-slate-900">Local Delivery Circuit</span>
+<span class="text-[10px] text-slate-400 uppercase tracking-wider">Mercedes Sprinter (BN21 KLY)</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="text-sm font-black text-slate-900">42.8</span>
+<span class="text-[10px] text-slate-400 ml-1">km</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-black uppercase tracking-widest rounded-full">Approved</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-slate-300">check_circle</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-slate-200 rounded-full overflow-hidden">
+<img alt="David" data-alt="Close up of a friendly male technician in a blue uniform shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPG80B4UjuRYzP7XwQTaffVjOZpdSis9gH3a9rM5Iv_RzPAszqwXggsyn8qluXWzI1YMMnj35mrm5RV1LHNIlo1OviQSx2E-t61ZOzRbxkWW6-m3slRg2UgytVY2r6s6y5r1HNXAXFTvx7RLlcytc8xzsKsd5YvSU_9YG4G3rI824Iftu66DpWnnHM7yJdWlQgcQw_GF69rodztTb29r4mIPoBvqablJ7vHMqkGw5zexSG0ivLueXGSGVuX9wM-0FByYoMKZhVOxgK"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900">David Chen</p>
+<p class="text-[10px] text-slate-500">ID: #DC-1108</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-xs text-slate-600">Oct 23, 2023</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-xs font-medium text-slate-900">Glasgow Site Visit</span>
+<span class="text-[10px] text-slate-400 uppercase tracking-wider">VW Transporter (SC70 OPP)</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="text-sm font-black text-slate-900">211.5</span>
+<span class="text-[10px] text-slate-400 ml-1">km</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 bg-blue-50 text-blue-700 text-[10px] font-black uppercase tracking-widest rounded-full">Synced</span>
+<span class="material-symbols-outlined text-blue-500 text-xs">cloud_done</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-1 hover:bg-slate-100 rounded">
+<span class="material-symbols-outlined text-slate-400">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-slate-200 rounded-full overflow-hidden">
+<img alt="Elena" data-alt="Portrait of a professional woman with glasses in an office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb0cshbbPoUcLCJpYp5FGpj7aNmT577NNkaHZp9ZBeJtuqUX0KNpMenYLUNvJLOxabSNkzGe5rA2ffbquw9olyQSJNyqoLUB_JhCvChhMC-tPU8_qTvB-F9qNDTCNmiC31H438uYpst4dL3yhYmLk8qNfo1XIp1x5MYi_4_XFK-1Z063u2ht0IhoDUu4UMe0WqBLk3ypIMFOKGTQ5T6xs_6fYcKuf8vyVmoGRT8r0JBZiVbKZT9B0bhHaSGb4mMQHiKTuKhi24S13q"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900">Elena Rodriguez</p>
+<p class="text-[10px] text-slate-500">ID: #ER-5529</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-xs text-slate-600">Oct 23, 2023</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-xs font-medium text-slate-900">Manchester Depot → Leeds</span>
+<span class="text-[10px] text-slate-400 uppercase tracking-wider">Ford Transit (MT19 LLL)</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="text-sm font-black text-slate-900">68.9</span>
+<span class="text-[10px] text-slate-400 ml-1">km</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-yellow-50 text-yellow-700 text-[10px] font-black uppercase tracking-widest rounded-full">Pending</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors opacity-0 group-hover:opacity-100">Approve for Reimbursement</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Footer -->
+<div class="p-6 flex justify-between items-center border-t border-slate-100">
+<span class="text-xs text-slate-400">Showing 1-10 of 1,282 logs</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 rounded border border-slate-200 text-xs text-slate-500 hover:bg-slate-50">Previous</button>
+<button class="px-3 py-1 rounded border border-slate-900 bg-slate-900 text-white text-xs font-bold">1</button>
+<button class="px-3 py-1 rounded border border-slate-200 text-xs text-slate-500 hover:bg-slate-50">2</button>
+<button class="px-3 py-1 rounded border border-slate-200 text-xs text-slate-500 hover:bg-slate-50">3</button>
+<button class="px-3 py-1 rounded border border-slate-200 text-xs text-slate-500 hover:bg-slate-50">Next</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FAB Action (Contextual for Home/Main Dashboards) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-slate-900 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group">
+<span class="material-symbols-outlined transition-transform group-hover:rotate-90">add</span>
+<div class="absolute right-16 bg-slate-900 text-white px-4 py-2 rounded-lg text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none uppercase tracking-widest">
+            New Log Entry
+        </div>
+</button>
+</body></html>

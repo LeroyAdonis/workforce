@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#54647a",
+                    "primary-fixed": "#dbe1ff",
+                    "on-surface": "#191c1e",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "surface-container": "#eceef0",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-container": "#00174b",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "tertiary-fixed": "#fcdeb5",
+                    "tertiary-container": "#271901",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-dim": "#d8dadc",
+                    "on-primary-fixed": "#00174b",
+                    "outline": "#76777d",
+                    "on-tertiary-fixed": "#271901",
+                    "tertiary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-tertiary-container": "#98805d",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#0053db",
+                    "secondary-container": "#d0e1fb",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-low": "#f2f4f6",
+                    "on-primary-container": "#497cff",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "secondary": "#505f76",
+                    "primary": "#000000",
+                    "on-background": "#191c1e",
+                    "on-surface-variant": "#45464d",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface-bright": "#f7f9fb",
+                    "outline-variant": "#c6c6cd",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-slate-50 dark:bg-slate-900 shadow-none">
+<div class="flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">Kinetic Enterprise</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 pb-4 font-sans tracking-tight text-sm font-medium hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer active:opacity-70" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 pb-4 font-sans tracking-tight text-sm font-medium hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer active:opacity-70" href="#">Tracking</a>
+<a class="text-slate-500 dark:text-slate-400 pb-4 font-sans tracking-tight text-sm font-medium hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer active:opacity-70" href="#">Operations</a>
+<a class="text-slate-900 dark:text-white font-semibold border-b-2 border-slate-900 dark:border-white pb-4 font-sans tracking-tight text-sm font-medium transition-colors cursor-pointer active:opacity-70" href="#">Help</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer">settings</span>
+<img alt="Administrator Profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="Close-up professional headshot of a corporate administrator in a modern office with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5FF3RXN9D9YtbnhYYzLLOa1BvjYwHM83oUH7dugKiwGOxCpiBZhMxXSTM9MVFt1pxkuXQTZY7Nm8m4w1AsOmVQcM2r78lziSzL18JON68ILsi8mQbMZDkuEil9JbSjytQ5aeWWji9xWWeNpb9zqQR_ycigopNvlgZP2-BD-vEUcORZducYNoa2nC41c8P_cZoR_flLJMg51hq6gn4KWXrYQ-NJ2-LKO3JdO6orCsSaBFQBgU6PpI6HtKmkrXnvvJabwzXBEUGEC7w"/>
+</div>
+</div>
+<div class="bg-slate-200/50 dark:bg-slate-800/50 h-px"></div>
+</header>
+<main class="max-w-[1440px] mx-auto px-8 py-12 flex flex-col gap-12">
+<!-- Hero Search Section -->
+<section class="relative overflow-hidden rounded-xl bg-primary-container p-16 flex flex-col items-center justify-center text-center gap-8">
+<div class="absolute inset-0 opacity-20">
+<img alt="Background Pattern" class="w-full h-full object-cover" data-alt="abstract deep blue gradient with organic flowing shapes and subtle grain texture for a professional backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfTQK5hHb5_v3gwIJ50n-yLZ-L4bZ0tMAM-7vH2xkcppyo_MB0SxEQZ1hGZ4ZsRa6hYwWzA052JhOuLT2pCb_A34G1sWTSzpSViQtk-tWUZUEIo6BhWYMcd2VMdN0ytilXwbQA88smKKznEioc9knqdXCiCVF8K8CQnFKT74XNUX1uLiKJTWjPDdbjJjoetdLJapDImB6RCgidGEWP1poCqwdVNGdu8kRvZYacrUI2UsJmZLxKDJDxjhfOJA6zg723q3tl1ltg7WLu"/>
+</div>
+<div class="relative z-10 max-w-2xl w-full">
+<h1 class="text-4xl font-extrabold tracking-tight text-white mb-4">Precision Orchestrator Support</h1>
+<p class="text-on-primary-container font-medium mb-8">Empowering your workforce with immediate answers and architectural intelligence.</p>
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-6 py-4 bg-white rounded-lg shadow-xl text-on-surface focus:ring-2 focus:ring-on-primary-container outline-none border-none" placeholder="Search the Knowledge Base for articles, guides, or keywords..." type="text"/>
+</div>
+</div>
+</section>
+<!-- Main Content Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Knowledge Base & Training (Left Column) -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-12">
+<!-- Training Videos: Bento Grid Style -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold tracking-tight text-on-surface">Training Videos</h2>
+<a class="text-sm font-semibold text-on-primary-container hover:underline" href="#">View Library</a>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2 md:col-span-1 group cursor-pointer">
+<div class="relative rounded-xl overflow-hidden aspect-video mb-3">
+<img alt="Platform Overview" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="High-tech dashboard screen displaying complex data visualizations in a dimly lit control room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkPkMvlbQ447jNs_43cT56stYwL0-hFjXNah0wFgJegsv1UPWodpnNrKwpxon87KiDhq_gyDwSG1FAhb5jatl5Ww2gjW_T9lVGCfDHx7vOboknWE7BH2I1tSRsrRL4-YAShaK0fXlGd_7CkHiPaeuQJPdfiyXUiuxwuqyEm3A6Ln1C56ofyHZbKJ24LqdQhodu3vKrquJag0wOzH3PwPNrQbJO3xWPNXwFIQXRrcfXsnDMEC6l5G8q3sm-WPf_k-OztZpAqUvUA7I3"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<div class="absolute bottom-2 right-2 px-2 py-1 bg-black/70 text-white text-[10px] font-bold rounded">12:45</div>
+</div>
+<h3 class="font-bold text-on-surface">Platform Masterclass: Command Center</h3>
+<p class="text-sm text-on-surface-variant">Learn the core architectural principles of Kinetic Enterprise.</p>
+</div>
+<div class="col-span-2 md:col-span-1 grid grid-rows-2 gap-4">
+<div class="flex gap-4 items-center p-3 bg-surface-container-lowest rounded-xl group cursor-pointer">
+<div class="w-24 h-16 relative rounded-lg overflow-hidden shrink-0">
+<img alt="Analytics" class="w-full h-full object-cover" data-alt="Clean data chart with green and blue lines representing growth on a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-8VzH4OOH6llRLi2In9I9uqoZmFyZUfeRvoe0rPs8YtoC8r1a_aRnSia6UHb1jLB3Rz7CW6KNUrwK79ybQ3rwg76dxF4wBr8Pv8HVLkZjkkK0YtPRPSgdzyAGLhf2g2BU7sz9mT3ungoDxslLlgFCMFfzkVEJ6Gc7sZ3M2uMHqAZCu1zbZ1UJuy0cE1vpVkXaGG0_4DDDi8Zpd453MVVgfYHBwg8-XtDYfbhqnliv3LyAymcJUnnPlTav4sx0TZ6I-jJHAWBTcAaw"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xl">play_arrow</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface">Data Visualization Deep-Dive</h4>
+<p class="text-xs text-on-surface-variant">5:12 • Workforce Analytics</p>
+</div>
+</div>
+<div class="flex gap-4 items-center p-3 bg-surface-container-lowest rounded-xl group cursor-pointer">
+<div class="w-24 h-16 relative rounded-lg overflow-hidden shrink-0">
+<img alt="Dispatch" class="w-full h-full object-cover" data-alt="Top down view of team members working around a large digital tablet on a clean desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz8Q1ZGS1lkLnVnb-9LcEeCjB3LjBfJFibGhpbGlzJqpUU_rP4e-2cJD_I2TPlLDUo57pwjcEjEfCMokENZg6HEdkosGJzn-PW90Npy-nbAycVTPRc137lA1gD4b7SQD6u1sBhu2kBOoWgjzuG2jH8EshSoSJnZaTASHh5wy3l7SzcEbr2b64KquHBYdKWhEAU_mRB30qLYAHcL1isT0C4fbKMU1I3JrvLvn5MRA8grNnqT4QHo26B6cj2fzIFAf-xVoC2my0LiS22"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xl">play_arrow</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface">Precision Dispatching</h4>
+<p class="text-xs text-on-surface-variant">8:30 • Operations Support</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Common Issues (FAQ) Section -->
+<section>
+<h2 class="text-2xl font-bold tracking-tight text-on-surface mb-6">Common Issues</h2>
+<div class="flex flex-col gap-3">
+<!-- FAQ Item 1 -->
+<div class="p-6 bg-surface-container-lowest rounded-xl group cursor-pointer transition-all hover:shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant">sync</span>
+</div>
+<h3 class="font-bold text-on-surface">How do I sync field map data in offline mode?</h3>
+</div>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="p-6 bg-surface-container-lowest rounded-xl group cursor-pointer transition-all hover:shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant">person_add</span>
+</div>
+<h3 class="font-bold text-on-surface">Troubleshooting personnel invitation links</h3>
+</div>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="p-6 bg-surface-container-lowest rounded-xl group cursor-pointer transition-all hover:shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant">security</span>
+</div>
+<h3 class="font-bold text-on-surface">Resetting multi-factor authentication (MFA)</h3>
+</div>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="p-6 bg-surface-container-lowest rounded-xl group cursor-pointer transition-all hover:shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant">payments</span>
+</div>
+<h3 class="font-bold text-on-surface">Exporting quarterly payroll reports</h3>
+</div>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar (Right Column) -->
+<aside class="col-span-12 lg:col-span-4 flex flex-col gap-8">
+<!-- Contact Support Sidebar -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col gap-8 shadow-sm">
+<div>
+<h2 class="text-xl font-bold tracking-tight text-on-surface mb-2">Contact Support</h2>
+<p class="text-sm text-on-surface-variant">Our architectural intelligence experts are standing by to assist you.</p>
+</div>
+<div class="flex flex-col gap-4">
+<button class="w-full bg-primary py-4 px-6 rounded-lg text-white font-bold flex items-center justify-center gap-3 transition-transform active:scale-95 shadow-lg">
+<span class="material-symbols-outlined">forum</span>
+                            Start Live Chat
+                        </button>
+<button class="w-full bg-secondary-container py-4 px-6 rounded-lg text-on-secondary-fixed-variant font-bold flex items-center justify-center gap-3 transition-transform active:scale-95">
+<span class="material-symbols-outlined">mail</span>
+                            Open Email Ticket
+                        </button>
+</div>
+<div class="bg-surface-container-highest rounded-lg p-4 flex items-center gap-4">
+<div class="relative">
+<img alt="Agent" class="w-10 h-10 rounded-full object-cover" data-alt="Professional woman with a headset smiling subtly in a blurred modern office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP_hqygSI0FtzY9c1T-VEBPH3u3URwhYOwSlx9TV5hkqxlWAoiQY5vWy7Ugq_zGEkHYnstJh4wO6d_RvQ70WPMoLOWLjrFSVLG4RENV5J5UGb9jKdLL0E92P_3KX_IvKZhybdjoELxXyxv8dYnnoQUBgv7L75QUMSMaz7RMJCpIRrsS4ZuAm7NzXzTkMjCNXGdTa3kA6OzL-PFvuOBW3MP7NpqKKx3pC8cQ6HpIuQkEGimSJt4vjMcS7W3MRuTFlGqfPI7WSDzcM5k"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Evelyn Harper</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Expert Online</p>
+</div>
+</div>
+</div>
+<!-- System Documentation Links -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<h2 class="text-lg font-bold tracking-tight text-on-surface mb-6">Documentation</h2>
+<ul class="flex flex-col gap-4">
+<li>
+<a class="group flex items-center justify-between text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary">menu_book</span>
+                                    User Operations Manual
+                                </span>
+<span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center justify-between text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary">api</span>
+                                    API &amp; Integration Docs
+                                </span>
+<span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center justify-between text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary">rule</span>
+                                    Privacy &amp; Compliance
+                                </span>
+<span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center justify-between text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary">new_releases</span>
+                                    Latest Release Notes
+                                </span>
+<span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- System Health Widget -->
+<div class="p-6 rounded-xl border border-outline-variant/10 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold tracking-widest text-on-surface-variant uppercase">System Status</span>
+<span class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded-full">ALL SYSTEMS OPERATIONAL</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-[99.9%] bg-green-500"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant">Last checked: 2 minutes ago</p>
+</div>
+</aside>
+</div>
+<!-- Feedback Section -->
+<section class="bg-surface-container-low rounded-2xl p-12 text-center flex flex-col items-center gap-6">
+<h2 class="text-2xl font-bold tracking-tight text-on-surface">Still can't find what you're looking for?</h2>
+<p class="text-on-surface-variant max-w-xl">Our community forum and developer portal are also great places to find solutions shared by other Kinetic Enterprise users.</p>
+<div class="flex gap-4">
+<a class="px-6 py-3 bg-white rounded-lg font-bold text-sm text-on-surface shadow-sm hover:shadow-md transition-all" href="#">Visit Community Forum</a>
+<a class="px-6 py-3 bg-white rounded-lg font-bold text-sm text-on-surface shadow-sm hover:shadow-md transition-all" href="#">Developer Portal</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="max-w-[1440px] mx-auto px-8 py-12 mt-12 border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col gap-2">
+<span class="text-lg font-black tracking-widest text-slate-900 uppercase">Kinetic Enterprise</span>
+<p class="text-xs text-on-surface-variant">© 2024 Precision Orchestrator. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary" href="#">Terms of Service</a>
+<a class="text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary" href="#">Support Status</a>
+</div>
+</div>
+</footer>
+<!-- Bottom Navigation (Mobile Only) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-2xl flex justify-around items-center p-4 z-50">
+<span class="material-symbols-outlined text-slate-400">dashboard</span>
+<span class="material-symbols-outlined text-slate-400">map</span>
+<span class="material-symbols-outlined text-slate-400">groups</span>
+<span class="material-symbols-outlined text-slate-900 font-bold">help</span>
+<img alt="Profile" class="w-6 h-6 rounded-full" data-alt="Small round professional profile picture of a male executive" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFl3dW2-RPol4P8ri_kIA7TTHs525UCiV9ECc4IC2g04-d4cgYNupHtz9BCWPPK9sOxPu2SeKPWpYAwmIt8Av37S44badaxd9OHzkJHwEn2_0Ejnoh7SW3LihzcjIJZcBAy1sJ0nZrXcs8P9UIgDMVPv3DHPDm6HuIhyTPwMPOM-UwhubRNjVKmOdGMM2lwVKhWZbigwEuzK0i6YRlETaygb_fvX4ELsVeFAN_Z5gBUt8N67mGeZfDtASuZC-umTt_gQT8EiUAkoVu"/>
+</div>
+</body></html>

@@ -15,6 +15,20 @@
       "when": 1775761772016,
       "tag": "0001_famous_invaders",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1776340655574,
+      "tag": "0002_mushy_captain_marvel",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1776340698610,
+      "tag": "0003_salty_rattler",
+      "breakpoints": true
     }
   ]
 }

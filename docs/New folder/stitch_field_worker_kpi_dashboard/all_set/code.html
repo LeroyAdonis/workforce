@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#f7f9fb",
+                    "surface-container-highest": "#e0e3e5",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eceef0",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-dim": "#d8dadc",
+                    "secondary-container": "#d0e1fb",
+                    "on-secondary-container": "#54647a",
+                    "surface": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#76777d",
+                    "outline-variant": "#c6c6cd",
+                    "on-surface-variant": "#45464d",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary-container": "#271901",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#497cff",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary-container": "#98805d",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-secondary-fixed": "#0b1c30",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "tertiary": "#000000",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-tint": "#0053db",
+                    "on-background": "#191c1e",
+                    "secondary": "#505f76",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#dbe1ff",
+                    "primary": "#000000",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "secondary-fixed": "#d3e4fe",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "tertiary-fixed": "#fcdeb5",
+                    "on-surface": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-fixed": "#271901",
+                    "inverse-surface": "#2d3133",
+                    "inverse-primary": "#b4c5ff",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "primary-container": "#00174b",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Sidebar Navigation Shell -->
+<aside class="h-screen w-64 fixed left-0 bg-slate-50 dark:bg-slate-900 flex flex-col p-4 gap-2 z-50">
+<div class="px-2 py-4">
+<h1 class="text-lg font-black text-slate-900 dark:text-white tracking-tight">Onboarding</h1>
+<p class="text-xs text-slate-500 font-medium">Setup your workspace</p>
+</div>
+<nav class="flex flex-col gap-1 mt-4">
+<!-- Welcome: Inactive -->
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out cursor-pointer text-sm font-medium Inter">
+<span class="material-symbols-outlined" data-icon="door_open">door_open</span>
+<span>Welcome</span>
+</div>
+<!-- Role: Inactive -->
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out cursor-pointer text-sm font-medium Inter">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span>Role</span>
+</div>
+<!-- Profile: Inactive -->
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out cursor-pointer text-sm font-medium Inter">
+<span class="material-symbols-outlined" data-icon="person_edit">person_edit</span>
+<span>Profile</span>
+</div>
+<!-- Complete: Active -->
+<div class="flex items-center gap-3 px-3 py-2 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-lg shadow-sm transition-all duration-200 ease-in-out cursor-pointer text-sm font-medium Inter">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Complete</span>
+</div>
+</nav>
+<div class="mt-auto p-4 bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-3">
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="Professional headshot of a smiling man in a creative office environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-AmlSo6JUmqyeYDFicziYJTDlX8p1ZTNZivDB-AFbq8q4GA84ZeFZWQ8rJeZvhj58AL97sqDSPzAi_B2laWii_CBQh_KwASB41LPo16wI94abz_sTg-6UWbjcl7xNZypMRvL_3yemlXFzh9-_4S4LfC2_sgulL0hUoKaux0mMFPjcycLLfCFD5Gl8n1GNefZgPdYzJwUpOnCLUpe5Wrvbc_xUwUC_tg5q0yLvAWI-fI9PIvoRV2aCvSIzdhwNwIv0E0PY4kH1b_kC"/>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">Alex Rivera</p>
+<p class="text-[10px] text-on-surface-variant truncate">Product Lead</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen relative flex items-center justify-center p-12">
+<!-- Background Gradient Accents -->
+<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-on-primary-container/5 rounded-full blur-[120px] -mr-48 -mt-48"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary-container/10 rounded-full blur-[100px] -ml-24 -mb-24"></div>
+<div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+<!-- Completion Message Column -->
+<div class="lg:col-span-5 flex flex-col space-y-8">
+<div class="flex flex-col space-y-4">
+<div class="w-16 h-16 bg-primary flex items-center justify-center rounded-xl shadow-xl shadow-primary/10">
+<span class="material-symbols-outlined text-on-primary text-4xl" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<h2 class="text-5xl font-extrabold tracking-tight text-on-surface leading-tight">
+                        Your workspace is ready
+                    </h2>
+<p class="text-lg text-on-surface-variant leading-relaxed max-w-sm">
+                        Welcome to Kinetic Enterprise. We've optimized your dashboard based on your role and preferences.
+                    </p>
+</div>
+<div class="pt-4">
+<button class="group relative px-8 py-4 bg-primary text-on-primary rounded-xl font-bold text-lg flex items-center gap-3 transition-all active:scale-95 shadow-lg shadow-primary/20 overflow-hidden">
+<span class="absolute inset-0 bg-gradient-to-r from-primary to-on-primary-container opacity-0 group-hover:opacity-100 transition-opacity"></span>
+<span class="relative z-10">Enter Dashboard</span>
+<span class="material-symbols-outlined relative z-10 group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="flex items-center gap-6 pt-4">
+<div class="flex -space-x-2">
+<img alt="Team member" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Portrait of a female engineer looking at camera with a confident expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2UBIONiTXAFnSGheK0X-97QlkXC2b0UI5Mbvki-dhdbeZpA7T3zpv60Dr4YWJa9UoWEDX-CSNLa8PB2idCBR6AATniyDh2Rtq39UqR-RSCcqRBQbFvJ7GjS_u013RsBrPdbRaOU777_igqAwsWAtg4SWkMLQj2FA2t9mVxH1VOyMzvmcUu4Qr7uELH-hE2cMrH9fmTPnMVmGMzH2R421KHG8QfIkvCuptqNeNBOk2HnrDRpLWhvUFbUiGvmgIPJNvbWzwfIIVo7Vf"/>
+<img alt="Team member" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Close up of a man with spectacles in a professional setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG4aJH7sJQIi1xJHe-LbYQ7u63yifOdn3MYmY0EVAl5-b_6bp0NECdKv7_4_GeiWG4O948kEi9DsGgdJSA4kBP70AJjf2j1FVqk-a1kpKORsWF8M4buL3T_R-V0dhrJmGF7L94sqk9tJ1a-uarxB5ZHijGW2kzA99B6-QGnWsPkBLXcD-D2sMfrI6SUhsVRQfptPm_hh5sYiFyAvXM8nFboWJrro0qGG8utiQhSeaBfKJnqP4GIlxDkea-7sUPcMqb3r0x8BwPR9po"/>
+<img alt="Team member" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Smiling man in business casual attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLv_qC-OOeku5eYdUnAu988UQ0YR3j7wgF9okGbSjaIeDmNO7LlPGA6GO7qG-1QlmpgQCLGby98jmeJrXEcR5OOGyfjfn5N4jZdpnn-X5HJw65tM1wj0FJY8f63AhaT4jgOskbahxP5dPpFzHVXKNt9yDMBugdUg0A4CqqC3ZyCx52CI2J4FQ90YG3UMDPSNZqOsvDDgqWO_JaBiBLhMJrkYp6UG8L4hnJnGnQVEr9PfP077dZR32uKakUBcgDYvPaMlcljawhzERD"/>
+</div>
+<p class="text-sm font-medium text-on-surface-variant">Join 12 colleagues already online</p>
+</div>
+</div>
+<!-- Preview Column -->
+<div class="lg:col-span-7 relative">
+<!-- Decorative Frame for Dashboard Preview -->
+<div class="bg-surface-container-highest rounded-[2rem] p-3 shadow-2xl">
+<div class="bg-surface rounded-[1.5rem] overflow-hidden shadow-inner aspect-[4/3] relative">
+<!-- Internal Dashboard Mockup -->
+<div class="flex h-full w-full">
+<!-- Mini Nav -->
+<div class="w-16 bg-surface-container-low flex flex-col items-center py-6 gap-6">
+<div class="w-8 h-8 bg-primary rounded-lg"></div>
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg opacity-40"></div>
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg opacity-40"></div>
+<div class="w-8 h-8 bg-surface-container-highest rounded-lg opacity-40"></div>
+</div>
+<!-- Mini Content -->
+<div class="flex-1 p-6 space-y-6">
+<div class="flex justify-between items-center">
+<div class="space-y-2">
+<div class="h-4 w-32 bg-surface-container-highest rounded"></div>
+<div class="h-3 w-48 bg-surface-container-high rounded"></div>
+</div>
+<div class="h-10 w-10 bg-surface-container-low rounded-full"></div>
+</div>
+<!-- Bento Preview -->
+<div class="grid grid-cols-3 gap-4 h-full pb-16">
+<div class="col-span-2 bg-surface-container-lowest rounded-xl p-4 shadow-sm space-y-4">
+<div class="h-4 w-full bg-surface-container-low rounded"></div>
+<div class="h-24 w-full bg-surface-container-low rounded-lg relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-tr from-on-primary-container/10 to-transparent"></div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="h-12 bg-surface-container-low rounded"></div>
+<div class="h-12 bg-surface-container-low rounded"></div>
+</div>
+</div>
+<div class="col-span-1 space-y-4">
+<div class="h-1/2 bg-on-primary-container/10 rounded-xl"></div>
+<div class="h-1/3 bg-surface-container-lowest rounded-xl shadow-sm"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Glass Insights Overlay -->
+<div class="absolute bottom-6 right-6 w-56 glass-panel rounded-2xl p-4 shadow-xl border border-white/20">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Live Insights</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-[10px] text-on-surface-variant">Productivity Score</p>
+<p class="text-xl font-bold">98.2%</p>
+</div>
+<div class="w-12 h-6 bg-emerald-100 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600 text-sm" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 w-[92%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Abstract Decorative Elements -->
+<div class="absolute -top-6 -right-6 w-24 h-24 bg-tertiary-fixed rounded-3xl -rotate-12 z-[-1] opacity-50"></div>
+<div class="absolute -bottom-8 -left-8 w-32 h-32 bg-primary-fixed rounded-full z-[-1] opacity-30"></div>
+</div>
+</div>
+</main>
+<!-- Contextual Success FAB (Limited Use) -->
+<div class="fixed bottom-8 right-8 flex items-center gap-3 bg-surface-container-lowest p-2 rounded-full shadow-lg border border-outline-variant/10">
+<div class="w-10 h-10 rounded-full bg-on-primary-container/10 flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="pr-4">
+<p class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant leading-none">Status</p>
+<p class="text-xs font-semibold">Profile Verified</p>
+</div>
+</div>
+</body></html>

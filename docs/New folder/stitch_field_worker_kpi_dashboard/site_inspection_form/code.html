@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Architect Intelligence - Site Inspection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-effect {
+      backdrop-filter: blur(20px);
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#dec29a",
+            "outline": "#76777d",
+            "on-error": "#ffffff",
+            "background": "#f7f9fb",
+            "on-tertiary-container": "#98805d",
+            "tertiary": "#000000",
+            "inverse-surface": "#2d3133",
+            "outline-variant": "#c6c6cd",
+            "surface-container-high": "#e6e8ea",
+            "tertiary-container": "#271901",
+            "on-secondary-fixed": "#0b1c30",
+            "on-error-container": "#93000a",
+            "secondary": "#505f76",
+            "surface-bright": "#f7f9fb",
+            "on-secondary-fixed-variant": "#38485d",
+            "surface-dim": "#d8dadc",
+            "on-background": "#191c1e",
+            "surface-tint": "#0053db",
+            "on-tertiary-fixed-variant": "#574425",
+            "on-primary-fixed": "#00174b",
+            "on-primary-fixed-variant": "#003ea8",
+            "secondary-fixed": "#d3e4fe",
+            "surface-variant": "#e0e3e5",
+            "error": "#ba1a1a",
+            "primary": "#000000",
+            "on-surface": "#191c1e",
+            "primary-fixed-dim": "#b4c5ff",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#b7c8e1",
+            "surface": "#f7f9fb",
+            "primary-fixed": "#dbe1ff",
+            "tertiary-fixed": "#fcdeb5",
+            "on-tertiary-fixed": "#271901",
+            "on-secondary-container": "#54647a",
+            "surface-container": "#eceef0",
+            "inverse-primary": "#b4c5ff",
+            "surface-container-highest": "#e0e3e5",
+            "surface-container-low": "#f2f4f6",
+            "primary-container": "#00174b",
+            "on-surface-variant": "#45464d",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#d0e1fb",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#eff1f3",
+            "on-tertiary": "#ffffff",
+            "on-primary-container": "#497cff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- SideNavBar (Desktop Only) -->
+<aside class="fixed left-0 top-0 h-full p-4 space-y-2 h-screen w-64 hidden md:flex flex-col bg-slate-50 border-r border-slate-200/50 z-40">
+<div class="mb-8 px-2 pt-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-slate-900 leading-tight">Command Center</h1>
+<p class="text-[10px] uppercase tracking-[0.1em] text-slate-500 font-bold">Admin View</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-slate-200/50 text-slate-900 rounded-lg font-semibold hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+<span class="font-medium">Site Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-medium">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-medium">Workforce</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-medium">Analytics</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-slate-200/50">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-medium">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="md:ml-64 min-h-screen pb-24 md:pb-8">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full md:w-[calc(100%-16rem)] z-50 flex justify-between items-center px-6 h-16 bg-slate-50/80 backdrop-blur-xl border-b border-slate-200/50">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-slate-900">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="text-lg font-bold tracking-tight text-slate-900">Architect Intelligence</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center bg-slate-200/50 px-4 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-[18px] text-slate-500 mr-2" data-icon="search">search</span>
+<span class="text-slate-500 text-sm">Search assets...</span>
+</div>
+<button class="text-slate-500 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-500 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a professional architectural site inspector wearing a white hard hat with subtle studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClq8I0QT6phM2iZVax4I8PHp48_0onyLkbv1sN0XKhjRX7YDbrjJA1p4Ofp7R37xFWeYoqoov2v0dwvQtUrwxuI0_2JH-PFr00kHhbC_wo-MPp8ByGK2nqCUbrjCIG1CKeUKh2j7LVAFupJKG6CW3yEHg0o3PaSwyIDoAIShBSh9tR3ztYBK6XUsU4jiD6bro6Zd11oYRN8upf5VPSac-U-Lu_HbShTsBkm4fDu3m0DNig6l8SNbYst0F0N6owoQGKfs_Jz5i3syjU"/>
+</div>
+</div>
+</header>
+<div class="pt-24 px-4 md:px-8 max-w-5xl mx-auto">
+<!-- Breadcrumbs & Title -->
+<div class="mb-8">
+<div class="flex items-center gap-2 text-slate-500 text-xs font-medium tracking-[0.05em] uppercase mb-2">
+<span>Operations</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-slate-900">Site Inspection Form</span>
+</div>
+<h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">New Inspection Log</h2>
+<p class="text-slate-500 mt-1">Complete all mandatory fields to sync visit data to the command center.</p>
+</div>
+<!-- Bento Layout for Form -->
+<form class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Primary Form Column -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Site Selection Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm space-y-4">
+<div class="flex justify-between items-center">
+<label class="block text-sm font-bold text-slate-900 uppercase tracking-wider">Site Location</label>
+<button class="text-primary text-xs font-semibold flex items-center gap-1 hover:opacity-70" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+                ADD NEW SITE
+              </button>
+</div>
+<div class="relative">
+<select class="w-full bg-surface-container-low border-0 rounded-xl py-4 px-5 text-slate-900 focus:ring-2 focus:ring-primary appearance-none">
+<option value="">Select Project Site...</option>
+<option value="sky-tower">Sky Tower Development - Zone A</option>
+<option value="riverbank">Riverbank Commercial Plaza</option>
+<option value="harbor">Harbor Bridge Renovation</option>
+</select>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Notes Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm space-y-4">
+<label class="block text-sm font-bold text-slate-900 uppercase tracking-wider">Inspection Notes</label>
+<textarea class="w-full bg-surface-container-low border-0 rounded-xl p-5 text-slate-900 focus:ring-2 focus:ring-primary resize-none" placeholder="Document site progress, safety concerns, or equipment requirements..." rows="6"></textarea>
+</div>
+<!-- Photo Upload Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm space-y-4">
+<div class="flex justify-between items-center">
+<label class="block text-sm font-bold text-slate-900 uppercase tracking-wider">Site Imagery</label>
+<span class="text-xs text-slate-400">Optional: Max 10 photos</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<!-- Upload Trigger -->
+<div class="aspect-square rounded-xl bg-slate-50 border-2 border-dashed border-slate-200 flex flex-col items-center justify-center cursor-pointer hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-slate-400 text-3xl" data-icon="add_a_photo">add_a_photo</span>
+<span class="text-[10px] font-bold text-slate-400 mt-2 uppercase">Upload</span>
+</div>
+<!-- Placeholder Thumbnails -->
+<div class="aspect-square rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover" data-alt="construction site foundation with steel rebar and concrete forms under clear bright morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMnvaUuWVplUqyAc0PUOOj4c7OKkH2UV7Ph4ka70zCckZDvTi_ThwfbEdGYsxNPd5zpbYvd8xBxaDpTJnRQ4t37lwKQ1x7WVDJ0UTGMTDbY8v6jcCwIJU59S56r3O99He_wc6BrzqQb0t5e-qawK7z4QS0OTdbW_7Q5CGVZ_xMAO0qqNe6lAoIZnxgAFWRakJre7rLUQ7KoD3tVWQpwyqinnzTDuDx2XXjw-vizQw9MNfTQ0yOGk-S0o_kQq2TSD5FTTavRQ7QSATf"/>
+<button class="absolute top-1 right-1 w-6 h-6 bg-slate-900/80 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[14px]" data-icon="close">close</span>
+</button>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover" data-alt="architect in yellow safety vest reviewing blue prints on a construction site with structural steel in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB88tCVBlsAuGXdvSnImRy4P6sEttWsv6jOLQL2-exUXuLgXWDUf_JdT2PkKu3JSakp4MHmfqcyahChA6sbpZnmJ-oy9S-B_NoCsfNSPqBS9-jBiAIjLIqB9W3clolHp3oNoV-_1OSJ1aIyPW5eFmhP-zwSPA-RLXSTNV1QAvNbAY5Moqsqt_l0C0JytnQpKkpkqg6d27mdokobNj9xxs7GywRNKXuHqCZ6IOKfd5CLnYqjX5RxwkNXLPP8Cp5O6amNsXcBZGi3-vsi"/>
+<button class="absolute top-1 right-1 w-6 h-6 bg-slate-900/80 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[14px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar / Contextual Info -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Metadata Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm space-y-6">
+<div>
+<label class="block text-[10px] font-bold text-slate-400 uppercase tracking-[0.1em] mb-2">Visit Timestamp</label>
+<div class="flex items-center bg-surface-container-low rounded-xl p-3">
+<span class="material-symbols-outlined text-slate-400 mr-3" data-icon="calendar_today">calendar_today</span>
+<input class="bg-transparent border-0 p-0 text-sm font-medium focus:ring-0 w-full text-slate-900" type="datetime-local" value="2023-11-24T14:30"/>
+</div>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-slate-400 uppercase tracking-[0.1em] mb-2">Logistics (KMs Covered)</label>
+<div class="flex items-center bg-surface-container-low rounded-xl p-3">
+<span class="material-symbols-outlined text-slate-400 mr-3" data-icon="distance">distance</span>
+<input class="bg-transparent border-0 p-0 text-sm font-medium focus:ring-0 w-full text-slate-900" placeholder="0.0" step="0.1" type="number"/>
+<span class="text-slate-400 text-xs font-bold ml-2">KM</span>
+</div>
+</div>
+<div class="pt-4 space-y-4">
+<div class="flex items-center justify-between py-2 border-b border-slate-100">
+<span class="text-xs text-slate-500 font-medium">Auto-Capture Weather</span>
+<span class="text-xs font-bold text-slate-900">18°C, Sunny</span>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-slate-100">
+<span class="text-xs text-slate-500 font-medium">Network Sync</span>
+<span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold">READY</span>
+</div>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-on-primary-container rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+<button class="relative w-full bg-primary text-white py-5 px-6 rounded-xl font-bold text-lg flex items-center justify-center gap-3 active:scale-[0.98] transition-all" type="submit">
+              SUBMIT VISIT
+              <span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+<!-- Helper Alert -->
+<div class="p-4 bg-tertiary-fixed rounded-xl flex gap-3">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="info">info</span>
+<p class="text-xs text-on-tertiary-fixed-variant font-medium leading-relaxed">
+              Once submitted, inspection data is immutable. Review all notes and mileage before final sync.
+            </p>
+</div>
+</div>
+</form>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 backdrop-blur-lg shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="rss_feed">rss_feed</span>
+<span class="text-[10px] font-medium mt-1">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-slate-900 text-white rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="task_alt" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<span class="text-[10px] font-medium mt-1">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="text-[10px] font-medium mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-medium mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | Kinetic Enterprise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#54647a",
+                    "primary-fixed": "#dbe1ff",
+                    "on-surface": "#191c1e",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "surface-container": "#eceef0",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-container": "#00174b",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "tertiary-fixed": "#fcdeb5",
+                    "tertiary-container": "#271901",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-dim": "#d8dadc",
+                    "on-primary-fixed": "#00174b",
+                    "outline": "#76777d",
+                    "on-tertiary-fixed": "#271901",
+                    "tertiary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-tertiary-container": "#98805d",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#0053db",
+                    "secondary-container": "#d0e1fb",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-low": "#f2f4f6",
+                    "on-primary-container": "#497cff",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "secondary": "#505f76",
+                    "primary": "#000000",
+                    "on-background": "#191c1e",
+                    "on-surface-variant": "#45464d",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface-bright": "#f7f9fb",
+                    "outline-variant": "#c6c6cd",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-hidden">
+<main class="flex min-h-screen">
+<!-- Left Side: Login Form Canvas -->
+<section class="flex flex-col justify-between w-full lg:w-1/2 xl:w-[450px] bg-surface-container-lowest p-8 md:p-16 relative z-10">
+<!-- Branding Header -->
+<header class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-on-primary" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-on-surface">Kinetic Enterprise</h1>
+<p class="text-[10px] uppercase tracking-widest font-bold text-on-secondary-container">Command Center v2.4</p>
+</div>
+</header>
+<!-- Login Form Section -->
+<div class="max-w-md w-full mx-auto lg:mx-0">
+<div class="mb-10">
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface mb-2">Welcome Back</h2>
+<p class="text-on-surface-variant font-body leading-relaxed">Access your precision orchestrator dashboard and manage global operations.</p>
+</div>
+<form class="space-y-6">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant" for="email">Corporate Email</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-on-surface-variant group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="alternate_email">alternate_email</span>
+</div>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-12 pr-4 text-on-surface placeholder-outline focus:ring-2 focus:ring-on-primary-container focus:bg-surface-container-lowest transition-all" id="email" name="email" placeholder="name@kinetic.enterprise" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant" for="password">Security Key</label>
+<a class="text-xs font-semibold text-on-primary-container hover:underline transition-all" href="#">Forgot?</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-on-surface-variant group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock">lock</span>
+</div>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-12 pr-4 text-on-surface placeholder-outline focus:ring-2 focus:ring-on-primary-container focus:bg-surface-container-lowest transition-all" id="password" name="password" placeholder="••••••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Options -->
+<div class="flex items-center">
+<label class="flex items-center cursor-pointer group">
+<div class="relative">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-5 h-5 bg-surface-container-high rounded-lg peer-checked:bg-primary transition-colors"></div>
+<span class="material-symbols-outlined absolute inset-0 text-white text-[16px] flex items-center justify-center opacity-0 peer-checked:opacity-100" data-icon="check">check</span>
+</div>
+<span class="ml-3 text-sm font-medium text-on-surface-variant group-hover:text-on-surface transition-colors">Keep me signed in</span>
+</label>
+</div>
+<!-- CTA -->
+<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-xl shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:scale-[1.01] active:scale-[0.98] transition-all flex items-center justify-center gap-2 group" type="submit">
+                        Sign In to Dashboard
+                        <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Links -->
+<div class="mt-12 pt-8 flex gap-8 items-center border-t border-surface-variant/50">
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold mb-1">Support</span>
+<a class="text-xs font-semibold hover:text-primary transition-colors" href="#">Global Help Desk</a>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold mb-1">Security</span>
+<a class="text-xs font-semibold hover:text-primary transition-colors" href="#">Trust Center</a>
+</div>
+</div>
+</div>
+<!-- Legal Footer -->
+<footer class="mt-auto">
+<p class="text-[10px] text-outline leading-loose">
+                    © 2024 Kinetic Enterprise Inc. All rights reserved. <br/>
+                    Unauthorized access is prohibited and subject to monitoring.
+                </p>
+</footer>
+</section>
+<!-- Right Side: High Impact Visual Canvas -->
+<section class="hidden lg:flex flex-1 relative bg-inverse-surface overflow-hidden">
+<!-- Background Image -->
+<img alt="Modern logistics hub" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity" data-alt="dramatic wide angle shot of a massive modern automated logistics terminal with geometric metal structures and orange glowing lights at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ1BF7xNOeL8N9mpBgTM5oNTbKtQU_oZ3MbErpTcLwQhzsMYQKSaWAvmLcZ5khB2hR74Hbba9G5cJpGJqBYssEeE_F1ztdCzEPc3TRrMEhtM-_-kFOh9JSM2Ri1xQuPwrigsygYz21Hp14pQRMQeIzMhXxImIQ0jQBnXRZ7H1j6J2bcHWggiuopHVxGY3COgf0IQmsail9HbsJsNQ6P8kLugfveGrpcdcASMRSDCUa4LTGTRCLi4qnkKtGGNYhOZeV1kuNWfqX4Q9w"/>
+<!-- Gradient Overlay for Depth -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary via-transparent to-transparent opacity-40"></div>
+<!-- Glass Content Card -->
+<div class="relative z-10 m-auto max-w-xl p-12">
+<div class="backdrop-blur-xl bg-white/10 p-10 rounded-full border border-white/10 shadow-2xl">
+<div class="mb-8">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-on-primary-container/20 border border-on-primary-container/30 text-on-primary-container text-[10px] font-bold uppercase tracking-widest mb-6">
+                            Live System Status: Optimal
+                        </div>
+<h3 class="text-4xl font-black tracking-tighter text-white mb-6 leading-[1.1]">The Future of Workforce Orchestration.</h3>
+<p class="text-lg text-white/70 font-light leading-relaxed">
+                            "Kinetic has transformed our field operations from reactive to predictive. The precision is unmatched."
+                        </p>
+</div>
+<!-- Stats / Asymmetric Element -->
+<div class="grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
+<div>
+<p class="text-[10px] uppercase tracking-widest font-bold text-white/50 mb-1">Global Reach</p>
+<p class="text-2xl font-bold text-white">124 Hubs</p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest font-bold text-white/50 mb-1">Efficiency Gain</p>
+<div class="flex items-center gap-2">
+<p class="text-2xl font-bold text-white">+42%</p>
+<span class="material-symbols-outlined text-green-400 text-sm" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Decorative Element -->
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-on-primary-container/20 rounded-full blur-3xl"></div>
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-surface-tint/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Image Metadata Label -->
+<div class="absolute bottom-8 right-8 flex items-center gap-4">
+<div class="text-right">
+<p class="text-[10px] text-white/40 uppercase tracking-[0.2em] font-bold">Node Identity</p>
+<p class="text-xs text-white/80 font-medium">South-West Logistics Hub A9</p>
+</div>
+<div class="w-10 h-[1px] bg-white/20"></div>
+</div>
+</section>
+</main>
+</body></html>

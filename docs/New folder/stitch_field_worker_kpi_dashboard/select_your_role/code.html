@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#f7f9fb",
+                    "surface-container-highest": "#e0e3e5",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eceef0",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-dim": "#d8dadc",
+                    "secondary-container": "#d0e1fb",
+                    "on-secondary-container": "#54647a",
+                    "surface": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#76777d",
+                    "outline-variant": "#c6c6cd",
+                    "on-surface-variant": "#45464d",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary-container": "#271901",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#497cff",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary-container": "#98805d",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-secondary-fixed": "#0b1c30",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "tertiary": "#000000",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-tint": "#0053db",
+                    "on-background": "#191c1e",
+                    "secondary": "#505f76",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#dbe1ff",
+                    "primary": "#000000",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "secondary-fixed": "#d3e4fe",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "tertiary-fixed": "#fcdeb5",
+                    "on-surface": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-fixed": "#271901",
+                    "inverse-surface": "#2d3133",
+                    "inverse-primary": "#b4c5ff",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "primary-container": "#00174b",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen overflow-hidden">
+<!-- Sidebar Navigation Shell -->
+<aside class="h-screen w-64 fixed left-0 border-r-0 flex flex-col p-4 gap-2 bg-slate-50 dark:bg-slate-900 text-sm font-medium Inter">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-black text-slate-900 dark:text-white tracking-tight">Kinetic Enterprise</h1>
+<p class="text-[10px] uppercase tracking-[0.1em] text-on-surface-variant font-bold mt-1">Onboarding Flow</p>
+</div>
+<nav class="flex flex-col gap-2">
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out cursor-pointer rounded-lg">
+<span class="material-symbols-outlined text-lg">door_open</span>
+<span>Welcome</span>
+</div>
+<!-- Active State for Role Selection -->
+<div class="flex items-center gap-3 px-3 py-2 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-lg shadow-sm transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined text-lg">badge</span>
+<span>Role</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out cursor-pointer rounded-lg">
+<span class="material-symbols-outlined text-lg">person_edit</span>
+<span>Profile</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-200 ease-in-out cursor-pointer rounded-lg">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+<span>Complete</span>
+</div>
+</nav>
+<div class="mt-auto p-4 bg-surface-container-low rounded-xl">
+<p class="text-xs font-semibold text-on-surface uppercase tracking-wider mb-2">Step 2 of 4</p>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary w-1/2 h-full"></div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen flex flex-col items-center justify-center p-12">
+<!-- Header Section -->
+<header class="max-w-4xl w-full mb-12 text-center">
+<h2 class="text-5xl font-black tracking-tight text-primary mb-4">Identify your purpose.</h2>
+<p class="text-on-surface-variant text-lg max-w-xl mx-auto">Select the profile that best describes your daily operations. This will customize your workspace layout and available tools.</p>
+</header>
+<!-- Role Selection Bento Grid -->
+<div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+<!-- Role Card: Field Worker -->
+<button class="group relative flex flex-col text-left p-8 rounded-xl bg-surface-container-lowest transition-all duration-300 hover:translate-y-[-4px] ring-offset-background active:scale-[0.98] focus:outline-none" style="box-shadow: 0 20px 40px rgba(25, 28, 30, 0.04);">
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+</div>
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">engineering</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-3">Field Worker</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">Optimized for on-the-go efficiency. Log site visits, track performance KPIs in real-time, and manage your daily schedule from anywhere.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm font-medium text-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+                        Visit Logging
+                    </li>
+<li class="flex items-center gap-2 text-sm font-medium text-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+                        KPI Dashboards
+                    </li>
+<li class="flex items-center gap-2 text-sm font-medium text-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+                        Offline Support
+                    </li>
+</ul>
+</button>
+<!-- Role Card: System Administrator -->
+<button class="group relative flex flex-col text-left p-8 rounded-xl bg-surface-container-lowest transition-all duration-300 hover:translate-y-[-4px] ring-offset-background active:scale-[0.98] focus:outline-none" style="box-shadow: 0 20px 40px rgba(25, 28, 30, 0.04);">
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+</div>
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl text-on-primary-fixed-variant" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-3">System Administrator</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">The high-level command center. Manage your entire workforce, configure system protocols, and generate deep-dive analytics reports.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm font-medium text-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+                        Workforce Oversight
+                    </li>
+<li class="flex items-center gap-2 text-sm font-medium text-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+                        Custom Reporting
+                    </li>
+<li class="flex items-center gap-2 text-sm font-medium text-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+                        System Security
+                    </li>
+</ul>
+</button>
+</div>
+<!-- Action Footer -->
+<div class="max-w-5xl w-full flex items-center justify-between">
+<button class="px-6 py-3 rounded-xl font-semibold text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">arrow_back</span>
+                Previous Step
+            </button>
+<!-- Continue Button (Disabled State by default visually) -->
+<button class="px-10 py-4 rounded-xl font-bold bg-surface-container-highest text-outline cursor-not-allowed transition-all flex items-center gap-2" disabled="">
+                Continue to Profile
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- Background Decoration -->
+<div class="fixed top-0 right-0 w-[600px] h-[600px] bg-primary-fixed/20 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/4 -z-10"></div>
+<div class="fixed bottom-0 left-64 w-[400px] h-[400px] bg-secondary-fixed/30 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/4 -z-10"></div>
+</body></html>

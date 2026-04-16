@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings | Architectural Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-fixed": "#dbe1ff",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "tertiary-container": "#271901",
+                    "on-primary-container": "#497cff",
+                    "on-error-container": "#93000a",
+                    "outline": "#76777d",
+                    "error": "#ba1a1a",
+                    "on-background": "#191c1e",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#0053db",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "on-surface-variant": "#45464d",
+                    "on-secondary-fixed": "#0b1c30",
+                    "tertiary": "#000000",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary": "#505f76",
+                    "on-surface": "#191c1e",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#d0e1fb",
+                    "inverse-on-surface": "#eff1f3",
+                    "outline-variant": "#c6c6cd",
+                    "on-primary-fixed": "#00174b",
+                    "primary": "#000000",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#d3e4fe",
+                    "background": "#f7f9fb",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary-container": "#54647a",
+                    "inverse-surface": "#2d3133",
+                    "inverse-primary": "#b4c5ff",
+                    "tertiary-fixed": "#fcdeb5",
+                    "surface-container": "#eceef0",
+                    "on-tertiary-fixed": "#271901",
+                    "surface": "#f7f9fb",
+                    "primary-container": "#00174b",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-container": "#98805d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-100 dark:bg-slate-900 flex flex-col h-full p-4 gap-2 font-sans text-sm font-medium tracking-wide z-50">
+<div class="flex items-center gap-3 px-2 mb-8">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center overflow-hidden">
+<img alt="Organization Logo" data-alt="Minimalist abstract logo for a corporate entity with geometric shapes and professional slate blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB23s85bKHq031iCGCebbdRreWrPbWnYbBOF4DGDIXJtKTVDWtj1xh13fy4pGzSz9EOeYtpnT16PKZ8x6GIzfKdanhf73qrrYqAEhtiDZtFGpxd9zhtagawuSyB7R8YNGGwkc0iqJI06F_njqX8NpeOrkUrydXZt9b29Lt1PhdomXUyIf-WOiyGATQZfWMuk1DW1NABKyqkaUPV--6tq3VE1Nt3f1DSTRIhdrM--68zbjb5C-NGhWyiphqBVn1cEQgrg0jpvwtHwTtX"/>
+</div>
+<div>
+<h2 class="text-lg font-black tracking-tighter text-slate-900 dark:text-slate-50 leading-tight">Command Center</h2>
+<p class="text-[10px] uppercase tracking-widest text-slate-500">Admin Portal</p>
+</div>
+</div>
+<nav class="flex-grow flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Workforce</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-50 rounded-lg shadow-sm hover:translate-x-1 transition-transform duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Reporting</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Archives</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200/50 flex flex-col gap-1">
+<div class="mb-4 p-4 rounded-xl bg-primary text-on-primary flex flex-col gap-2 shadow-lg">
+<p class="text-xs opacity-80">Managing 240+ personnel</p>
+<button class="bg-white/20 hover:bg-white/30 transition-colors py-2 rounded-lg text-xs font-bold uppercase tracking-widest">Upgrade Plan</button>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 cursor-pointer transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="support">support</span>
+<span>Help</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 cursor-pointer transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-grow ml-64 flex flex-col min-h-screen relative overflow-hidden">
+<!-- TopNavBar -->
+<header class="w-full h-16 flex justify-between items-center px-8 w-full bg-slate-50 dark:bg-slate-950 sticky top-0 z-40">
+<div class="flex items-center gap-8">
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Architectural Intelligence</h1>
+<nav class="hidden md:flex items-center gap-6 font-sans tracking-tight text-sm">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors active:opacity-80" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors active:opacity-80" href="#">Analytics</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors active:opacity-80" href="#">Schedule</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-slate-900 transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-slate-50"></span>
+</button>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-all active:scale-95">
+                    Create Alert
+                </button>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden ml-2 ring-2 ring-slate-100">
+<img alt="User profile" data-alt="Professional headshot of a mid-40s corporate executive with a clean background and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRAmByoPw07xgw27dd-Qrp7im3l9qVI1OQXTIG77sT8X7uOjhSvui4B19DPAeYGhDHDKyZu8gQBTqEp-53ifV61cKFdkvUjCP2JszPeaNYZPXwqAf323_Q_vsxvnGoN9baghzw-4k80kqe1IjM_IH6s7mjDQnoM_-nS5lfZo44rxtmunfTv1cS6IbhTh0up-s-YvL8n64px_b-jpl35wU6mTY9ZdaARNpMPBOwJONbNyNaSWTXOha5Isc1fWZvjZLCH1V_M93hZKBk"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-grow p-8 max-w-6xl mx-auto w-full overflow-y-auto hide-scrollbar">
+<div class="mb-10">
+<h2 class="text-3xl font-extrabold tracking-tight mb-2">System Configuration</h2>
+<p class="text-on-surface-variant max-w-2xl">Tailor the Architectural Intelligence platform to your organization's unique operational needs and security requirements.</p>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Section 1: Profile -->
+<div class="col-span-12 lg:col-span-4">
+<h3 class="label-md uppercase tracking-[0.15em] font-bold text-outline mb-4">Profile Settings</h3>
+<p class="text-sm text-on-surface-variant mb-6">Manage your personal identity and account presence within the system.</p>
+</div>
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-4px_rgba(25,28,30,0.04)]">
+<div class="flex items-center gap-6 mb-8">
+<div class="relative group">
+<img alt="Profile large" class="w-24 h-24 rounded-full object-cover ring-4 ring-surface-container-low" data-alt="Close-up portrait of a male professional with a confident expression, modern haircut, and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-dt4Ur_vrcRZSSFfvsA7Zkaq_stA1uUhQF8faR0q22bHHq1J1vZRPPimf_hVj2OqPIi0MQoPf67aPGbuv9mQZLwduI5wG1WQbMhWpNX3ECgzuWZ3cBm3lVaNapbbGWtMHNpBjVd3k8ufCaJKrB9rTaKXbpUWciwdmxJhXGY8mDsrrldLPAccq1YGkuqzhmeXQdXTONQ9mlMPhOKy5dE292YmxcYtn7zILKknUjBDpm5nDWULwwza5y4a8Ha1h_M7r6wBLKRJOkinG"/>
+<button class="absolute bottom-0 right-0 bg-primary text-on-primary p-2 rounded-full shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<div>
+<h4 class="text-lg font-bold">Marcus Chen</h4>
+<p class="text-on-surface-variant text-sm">Senior Operations Director</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block label-md font-semibold text-on-surface">Full Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-md px-4 py-3 focus:ring-2 focus:ring-surface-tint focus:bg-white transition-all text-sm" type="text" value="Marcus Chen"/>
+</div>
+<div class="space-y-2">
+<label class="block label-md font-semibold text-on-surface">Email Address</label>
+<input class="w-full bg-surface-container-low border-none rounded-md px-4 py-3 focus:ring-2 focus:ring-surface-tint focus:bg-white transition-all text-sm" type="email" value="m.chen@kinetic-ent.com"/>
+</div>
+</div>
+</div>
+<!-- Spacer -->
+<div class="col-span-12 py-4"></div>
+<!-- Section 2: Security -->
+<div class="col-span-12 lg:col-span-4">
+<h3 class="label-md uppercase tracking-[0.15em] font-bold text-outline mb-4">Security</h3>
+<p class="text-sm text-on-surface-variant mb-6">Enhanced protection protocols for data integrity and access control.</p>
+</div>
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-4px_rgba(25,28,30,0.04)] space-y-8">
+<div class="flex justify-between items-center pb-6">
+<div>
+<h4 class="text-base font-bold">Two-Factor Authentication</h4>
+<p class="text-sm text-on-surface-variant">Add an extra layer of security to your account.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-on-primary-container"></div>
+</label>
+</div>
+<div class="space-y-4">
+<h4 class="text-base font-bold">Password Management</h4>
+<div class="grid grid-cols-1 gap-4 max-w-md">
+<button class="flex items-center justify-between w-full p-4 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors text-sm font-medium">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="lock">lock</span>
+                                    Change Password
+                                </span>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Spacer -->
+<div class="col-span-12 py-4"></div>
+<!-- Section 3: System Defaults -->
+<div class="col-span-12 lg:col-span-4">
+<h3 class="label-md uppercase tracking-[0.15em] font-bold text-outline mb-4">System Defaults</h3>
+<p class="text-sm text-on-surface-variant mb-6">Configure global KPI targets and performance benchmarks for the entire workforce.</p>
+</div>
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-4px_rgba(25,28,30,0.04)]">
+<div class="grid grid-cols-2 gap-8 mb-8">
+<div class="p-6 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="location_on">location_on</span>
+<span class="text-xs font-bold text-outline uppercase tracking-widest">Daily Target</span>
+</div>
+<h5 class="text-sm font-bold mb-2">Default Visits</h5>
+<div class="flex items-end gap-2">
+<input class="w-20 bg-transparent border-none p-0 text-3xl font-black text-primary focus:ring-0" type="number" value="12"/>
+<span class="text-on-surface-variant text-sm mb-1">visits / day</span>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="speed">speed</span>
+<span class="text-xs font-bold text-outline uppercase tracking-widest">Efficiency Target</span>
+</div>
+<h5 class="text-sm font-bold mb-2">Distance Standard</h5>
+<div class="flex items-end gap-2">
+<input class="w-20 bg-transparent border-none p-0 text-3xl font-black text-primary focus:ring-0" type="number" value="45"/>
+<span class="text-on-surface-variant text-sm mb-1">km / day</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3 p-4 bg-primary-fixed rounded-lg text-on-primary-fixed">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+<p class="text-xs font-medium">Changing these targets will update the visual goal-tracking for all active field agents effective immediately.</p>
+</div>
+</div>
+</div>
+<!-- Spacer -->
+<div class="col-span-12 py-4"></div>
+<!-- Section 4: Organization -->
+<div class="col-span-12 lg:col-span-4">
+<h3 class="label-md uppercase tracking-[0.15em] font-bold text-outline mb-4">Organization</h3>
+<p class="text-sm text-on-surface-variant mb-6">Institutional settings for branding and site-wide management preferences.</p>
+</div>
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-4px_rgba(25,28,30,0.04)]">
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block label-md font-semibold text-on-surface">Company Legal Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-md px-4 py-3 focus:ring-2 focus:ring-surface-tint focus:bg-white transition-all text-sm" type="text" value="Kinetic Enterprise Logistics Ltd."/>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-4">
+<label class="block label-md font-semibold text-on-surface">Branding Color</label>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-[#00174b] ring-2 ring-outline-variant shadow-inner"></div>
+<div class="text-sm font-mono bg-surface-container-low px-3 py-1 rounded">#00174B</div>
+<button class="text-xs font-bold text-on-primary-container">Update</button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block label-md font-semibold text-on-surface">Data Retention</label>
+<select class="w-full bg-surface-container-low border-none rounded-md px-4 py-3 focus:ring-2 focus:ring-surface-tint text-sm">
+<option>24 Months</option>
+<option>5 Years</option>
+<option>Indefinite</option>
+</select>
+</div>
+</div>
+<div class="pt-6">
+<h4 class="text-sm font-bold mb-4">Site Management Preferences</h4>
+<div class="space-y-3">
+<label class="flex items-center gap-3 p-4 rounded-lg border border-transparent hover:bg-surface-container-low cursor-pointer transition-colors group">
+<input checked="" class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium">Enable real-time synchronization for multi-site managers</span>
+</label>
+<label class="flex items-center gap-3 p-4 rounded-lg border border-transparent hover:bg-surface-container-low cursor-pointer transition-colors group">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium">Require regional approval for KPI adjustment</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="col-span-12 flex justify-end gap-4 mt-8 pb-20">
+<button class="px-6 py-3 rounded-lg text-sm font-bold text-outline hover:bg-surface-container-low transition-colors">Discard Changes</button>
+<button class="px-8 py-3 rounded-lg text-sm font-bold bg-primary text-on-primary shadow-lg hover:shadow-xl active:scale-95 transition-all">Save All Modifications</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>
